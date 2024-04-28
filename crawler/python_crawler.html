@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="csp-nonce" content="c91e811e-044f-4434-ac4e-963eb4d46da5">
+        
+        
+        <meta name="description" content="  # 網路爬蟲 &lt;font size=5&gt;  人工智慧與數位人文 莊昊耘 2023.5.11  &lt;font size=5&gt; &lt;!-- 要先 demo 投影片怎麼操作 --&gt;  ---  ## 什麼是">
+        
+        <title>Python crawler_TA - HackMD</title>
+        <link rel="icon" type="image/png" href="https://hackmd.io/favicon.png">
+        <link rel="apple-touch-icon" href="https://hackmd.io/apple-touch-icon.png">
+        
+<script nonce="c91e811e-044f-4434-ac4e-963eb4d46da5">
+  window.domain = 'hackmd.io'
+  window.urlpath = ''
+  window.debug = false
+  window.version = '1.3.0'
+  window.brand = 'HackMD'
+
+  
+
+  window.GOOGLE_API_KEY = 'AIzaSyCjSrqWHhmWJnoI7JlD88XDSaBgiKbaenA'
+  window.GOOGLE_CLIENT_ID = '911617723593-drikdibvvn63slfd6kbqigo8ql1no55s.apps.googleusercontent.com'
+  window.DROPBOX_APP_KEY = 'rdoizrlnkuha23r'
+  
+  window.PLANTUML_SERVER = 'https://ptuml.hackmd.io'
+
+  window.ASSET_URL = 'https://assets.hackmd.io'
+
+  window.USER_CAN_CREATE_TEAM = true
+  window.USER_CAN_DELETE_ACCOUNT = true
+  window.USER_DELETE_ACCOUNT_VIA_EMAIL = true
+  window.PAYMENT_ENABLED = true
+  window.PAYMENT_PROMOTION_BANNER_ENABLED = false
+  window.GITHUB_SYNC_ENABLED = true
+  window.GITLAB_SYNC_ENABLED = false
+  window.GITLAB_SYNC_BASE_URL = ''
+  window.VCS_SYNC_MODE = 'github'
+  window.VCS_PROVIDER_NAME = 'GitHub'
+  window.FREE_TEAM_NUM = 20
+  window.FREE_TEAM_MEMBER_NUM = 3
+  window.FREE_PUBLIC_TEAM_NUM = 10
+  
+  window.ALLOW_ANONYMOUS = true
+  window.ALLOW_ANONYMOUS_EDIT = false
+  window.PUBLIC_OVERVIEW = false
+  window.INTERNAL_PUBLIC_OVERVIEW = false
+  window.FULL_TEXT_SEARCH_ENABLE = false
+  window.ALGOLIA_SEARCH_ENABLE = true
+  window.MARKETING_EMAIL_ENABLE = true
+  
+  
+  
+  
+    window.WALLET_CONNECT_PROJECT_ID = '91d6fa182b725b5895a17a170a5878c1'
+  
+  window.API_MANAGEMENT_UI_ENABLE = true
+  window.FEEDBACK_UI_ENABLE = true
+  window.PUBLISH_ENABLE = true
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  window.TRASH_NOTE_DELETE_AFTER_FREE = 3
+  window.TRASH_NOTE_DELETE_AFTER_PAID = 30
+
+  
+
+  
+    window.IS_OWNER_UPGRADED = false
+  
+
+  
+    window.IMGUR_FALLBACK_CDN = 'https://imgur-backup.hackmd.io'
+  
+
+  
+    window.CLOUD_META_UI = true
+  
+  
+    window.CLOUD_META_API = true
+  
+  
+    window.CLOUD_META_MIGRATION = false
+  
+  
+    window.YAML_METADATA_ENABLED = false
+  
+
+  
+    window.NOTE_CAPACITY_LIMIT = 50
+  
+
+  
+    window.DOCUMENT_MAX_LENGTH = 100000
+  
+
+  
+    window.SOCIAL_NETWORK_FEATURES_ENABLED = true
+  
+
+  
+    window.PUBLISHMENT_MODERATION_ENABLED = true
+  
+
+  
+
+  window.SUGGEST_EDIT_ENABLED = true
+  
+
+  
+    window.REALTIME_CLIENT_WITH_CREDENTIALS = false
+  
+
+  
+</script>
+
+
+        
+         <link href="https://assets.hackmd.io/build/font-vendor.85aea95458609ff85035.css" rel="stylesheet"><link href="https://assets.hackmd.io/build/common-vendor.8badda337754ab1de336.css" rel="stylesheet"><link href="https://assets.hackmd.io/build/slide-vendor.4f9ce891d775b406c282.css" rel="stylesheet"><link href="https://assets.hackmd.io/build/slide.70cc63e70cf401c79bf6.css" rel="stylesheet">
+
+        <!-- style-loader will insert style before this div in development -->
+        <!-- This prevents overwriting reveal.js theme css -->
+        <meta id="style-tag-insertion">
+
+        <!-- For reveal.js theme -->
+        
+        <link rel="stylesheet" href="https://assets.hackmd.io/build/reveal.js/dist/theme/white.css" id="theme">
+        
+
+        <!-- For overwrite reveal.js -->
+        <link rel="stylesheet" href="https://hackmd.io/build/slide.css">
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js" integrity="sha256-8E4Is26QH0bD52WoQpcB+R/tcWQtpzlCojrybUd7Mxo=" crossorigin="anonymous"></script>
+<![endif]-->
+
+    </head>
+    <body>
+        <div class="container" data-hard-breaks="true">
+            <div class="reveal">
+                <div class="slides" style="display: none;">
+
+# 網路爬蟲
+&lt;font size=5&gt;
+
+人工智慧與數位人文
+莊昊耘 2023.5.11
+
+&lt;font size=5&gt;
+&lt;!-- 要先 demo 投影片怎麼操作 --&gt;
+
+---
+
+## 什麼是網路爬蟲？
+
+----
+
+## 為什麼要寫爬蟲？
+
+---
+
+## 在那之前...先來個小複習
+
+----
+
+## 什麼是 `html`? 什麼是 `CSS`?
+![](https://i.imgur.com/1wwd9ZC.png)
+
+----
+
+### 一份 `html` 檔分成哪兩個部分？
+##### 如果要在網頁中顯示你放的文字、圖片&lt;br&gt;要修改兩個部分的哪一部分？
+
+----
+
+### 什麼是 `class`? 什麼是 `href`?&lt;br&gt;
+
+```htmlembedded=
+&lt;p class=&#34;header1&#34; href=&#34;www.google.com&#34;&gt;我是一個p標籤&lt;/p&gt;
+```
+
+&lt;style&gt;
+.reveal {
+  font-size: 50px;
+}
+&lt;/style&gt;
+
+
+---
+
+## 讓我們多認識網頁一點
+
+----
+
+### 靜態網頁 vs 動態網頁
+
+----
+
+### [靜態網頁](http://abehiroshi.la.coocan.jp)
+![](https://steam.oxxostudio.tw/webp/python/spider/about-spider-01.webp)
+
+----
+
+### [動態網頁](https://www.facebook.com)
+![](https://steam.oxxostudio.tw/webp/python/spider/about-spider-02.webp)
+
+----
+
+## Request &amp; Response
+
+----
+
+| 方法 | 解釋 | 
+| -------- | -------- | 
+| GET     | 我跟對方伺服器拿取資料     | 
+| POST     | 我提供資料給對方伺服器進行後續處理     |
+|[More](https://notfalse.net/43/http-request-method)||
+
+----
+
+![](https://i.imgur.com/0GK6rqX.png)
+
+----
+
+### 來認識新的資料型態：`dict`
+
+----
+
+```python=
+example = {
+    &#34;Course&#34;: &#34;人工智慧與數位人文&#34;,
+    &#34;Weekday&#34;: 4,
+    &#34;instructer&#34;: &#34;張瑜芸&#34;,
+    &#34;TA&#34;: [&#34;標云&#34;, &#34;莊昊耘&#34;],
+}
+```
+&lt;br&gt;
+&lt;font size=6&gt;
+
+| Course | Weekday | instructer |TA |
+| -------- | -------- | -------- |-------- |
+| 人工智慧與數位人文    | 4    | 張瑜芸     |???|
+
+&lt;/font&gt;
+
+----
+
+```python=
+print(example[&#39;Course&#39;])
+print(example[&#39;TA&#39;])
+```
+
+----
+
+### :bulb: 小試身手
+寫一個有關你組員的 dictionary 且不得重複
+內容必須包含姓名、學號、系級&lt;br&gt;這學期修的通識課、你的其他組員有誰&lt;br&gt;並且命名為 `my_data`
+&lt;!-- 小試身手地方, 也許可以不要計分, 但要求他們要做完!!! 脅迫他們說沒做完這題, 後面就會大麋鹿, 請他們盡量發問, 以便於銜接。如果計分的話, 我怕他們會自我放棄 XDDDD  或是你可以改成最後請人舉手分享回答之類的? --&gt;
+
+---
+
+# 開始寫爬蟲囉！
+
+----
+
+# 今日目標&lt;br&gt;
+爬取 [Yahoo!電影網](https://movies.yahoo.com.tw/movie_intheaters.html) 所有上映中電影的資料
+
+----
+
+```python=
+!pip install beautifulsoup4
+```
+
+----
+
+## 先來看看網頁的樣子
+&lt;img src=&#34;https://i.imgur.com/mTuqNml.png&#34;  width=&#34;750&#34;&gt;
+
+----
+
+```python=
+import requests
+from bs4 import BeautifulSoup as bs
+
+url = &#39;https://movies.yahoo.com.tw/movie_intheaters.html&#39;
+response = requests.get(url=url)
+ 
+soup = bs(response.text, &#39;lxml&#39;)
+print(soup)
+```
+
+----
+
+有兩種方式可以幫助定位標籤
+1. CSS path
+2. html tag
+
+----
+
+### CSS Path
+右鍵 → 檢查 (檢閱元件/inspect) → &lt;br&gt;(找到目標資料) → 右鍵 → 複製selector
+
+----
+
+### CSS Path
+```python=
+soup.select(&lt;你的 CSS path&gt;)
+```
+
+----
+
+### CSS Path
+```python=
+soup.select(&#34;.release_list &gt; li:nth-child(1) &gt; div:nth-child(2) &gt; div:nth-child(1) &gt; div:nth-child(1) &gt; a:nth-child(1)&#34;)
+```
+
+----
+
+## 小試身手
+1. 隨便按進去一部電影
+2. 找到電影名稱、上映日期、片長、發行公司、IMDB 分數 的 CSS path
+3. 列印(`print()`)出以上各個項目&lt;br&gt; (不要看到奇怪的標籤)
+
+----
+
+![](https://i.imgur.com/XmlFIhx.png)
+
+---
+
+#### 如果今天目的是要抓目錄頁上的所有電影資料，用CSS會有什麼問題？
+
+----
+
+### html tag
+&lt;img src=&#34;https://i.imgur.com/orpYicF.png&#34;  width=&#34;750&#34;&gt;
+
+----
+
+#### 試跑下面兩個指令，告訴我差別在哪裡&lt;br&gt;&lt;br&gt;
+
+```python=
+print(soup.find(&#39;div&#39;, &#39;release_info&#39;))
+```
+```python=
+print(soup.find_all(&#39;div&#39;, &#39;release_info&#39;))
+```
+
+----
+
+### 想到`list`，就要想到 `for` 迴圈
+透過 `for` 迴圈來調整你的程式碼
+
+----
+
+![](https://i.imgur.com/E7wbFKR.png)
+
+----
+
+### Let&#39;s start from here.
+```python=
+example_list = []
+for item in info_items:
+    name = item.find(&#39;div&#39;, &#39;release_movie_name&#39;)
+    url = item.find(&#39;a&#39;)[&#39;href&#39;]
+    resultDICT = {
+        &#34;Name&#34;: name,
+        &#34;url&#34;: url
+    }
+    example_list.append(resultDICT)
+    print(resultDICT)
+```
+
+----
+
+## 小試身手
+1. 用同樣方法，透過 `for` 迴圈&lt;br&gt;找到「電影英文名稱」
+2. 將找到的資料加到 `dict` 裡
+
+----
+
+```python=
+for item in info_items:
+    name = item.find(&#39;div&#39;, &#39;release_movie_name&#39;).a.text.strip()
+    level = item.find(&#39;div&#39;, &#39;leveltext&#39;).span.text.strip()
+    url = item.find(&#39;a&#39;)[&#39;href&#39;]
+```
+
+----
+
+你可以用一個 `list` 把所有的網址包起來
+
+----
+
+```python=
+url_list = []
+for item in info_items:
+    name = item.find(&#39;div&#39;, &#39;release_movie_name&#39;).a.text.strip()
+    english_name = item.find(&#39;div&#39;, &#39;en&#39;).a.text.strip()
+    level = item.find(&#39;div&#39;, &#39;leveltext&#39;).span.text.strip()
+    url = item.find(&#39;a&#39;)[&#39;href&#39;]
+    url_list.append(url)
+```
+
+---
+
+# 還差什麼？
+
+----
+
+![](https://i.imgur.com/8tUcY2H.png)
+
+----
+
+```python=
+index_list = []
+BASE_URL = &#34;https://movies.yahoo.com.tw/movie_intheaters.html?page=&#34;
+for page_num in range(1, 9):
+    page_url = BASE_URL+page_num
+    index_list.append(page_url)
+index_list
+```
+
+----
+
+## 該如何將資料存起來呢？
+    
+----
+
+```python=
+import json
+with open(&#34;result.json&#34;, &#34;w&#34;) as f:
+    json.dump(&lt;存了很多 dictionary 的 list&gt;, f, ensure_ascii=False, indent=4)
+```
+&lt;!-- 要打開在瀏覽器給他們看 --&gt;
+
+----
+
+### 如果網站結構不如預期怎麼辦？ 
+
+----
+
+[AIR](https://movies.yahoo.com.tw/movieinfo_main/AIR-air-14824)
+![](https://i.imgur.com/6igloJd.png)    
+
+----
+
+# `try`...`except`
+
+----
+    
+```python=
+a = input(&#39;輸入數字：&#39;)
+print(a + 1)
+```
+
+----
+    
+```python=
+try:                      # 使用 try，測試內容是否正確
+  a = input(&#39;輸入數字：&#39;)
+  print(a + 1)
+except:         # 如果 try 的內容發生錯誤，就執行 except 裡的內容
+  print(&#39;發生錯誤&#39;)
+```
+
+---
+
+# 輪到你了
+
+----
+
+# 今日目標
+1. 找到總共九頁的上映中電影的所有網址
+2. 找到 **上映日期**、**片長**、**發行公司**、**IMDB分數**的位置
+3. 去除標籤跟空白後，加到`dict`
+4. 將所有電影的`dict`加到`list`裡，透過前面的`function`把資料存起來。
+
+----
+
+&lt;img src=&#34;https://i.imgur.com/Dy7LwpW.png&#34;  width=&#34;500&#34;&gt;
+
+----
+
+# HINT
+1. 可以從[前面](https://hackmd.io/@milanochuang/r16AGiQ42#/6/2)的 `index_list` 開始
+2. 看到 `list` 就要[想到什麼](https://hackmd.io/@milanochuang/r16AGiQ42#/5/3)？
+3. 想[辦法](https://hackmd.io/@milanochuang/r16AGiQ42#/5/9)找到每一頁的每一部電影的 url
+
+----
+
+4. 利用每一部電影的 url，以及在[這裡](https://hackmd.io/@milanochuang/r16AGiQ42#/4/9)找到的資料位置
+5. 用在[這裡](https://hackmd.io/@milanochuang/r16AGiQ42#/5/5)教的方式將資料存到`dict`，再將`dict`加到 `list` 裡&lt;br&gt; (記得 `try...except`)
+:bulb: 每一個新頁面都會需要 request 
+6. 把這份 `list` 放到[`dump function`](https://hackmd.io/@milanochuang/BJyeCKLEh#/6/3)的&lt;&gt;的位置 (`&lt;&gt;`記得刪掉)
+
+----
+
+```python=
+import requests
+from bs4 import BeautifulSoup as bs
+BASE = &#34;https://movies.yahoo.com.tw/movie_intheaters.html?page={}&#34;
+index_list = [BASE.format(i) for i in range(1, 10)] # 所有清單的連結
+```
+
+----
+
+```python=
+url_list = []
+for url in index_list:
+    response = requests.get(url=url)
+    soup = bs(response.text, &#39;lxml&#39;)
+    info_items = soup.find_all(&#39;div&#39;, &#39;release_info&#39;)
+    for item in info_items:
+        name = item.find(&#39;div&#39;, &#39;release_movie_name&#39;).a.text.strip()
+        url = item.find(&#39;a&#39;)[&#39;href&#39;]
+        url_list.append(url) # 撈取清單上所有電影的連結
+```
+
+----
+
+```python=
+resultLIST = []
+for url in url_list:
+    response = requests.get(url=url)
+    soup = bs(response.text, &#39;lxml&#39;)
+    try:
+        resultDICT = {
+        &#34;Name&#34;: soup.select(&#34;#content_l &gt; div:nth-child(1) &gt; div.l_box_inner &gt; div &gt; div &gt; div.movie_intro_info_r &gt; h1&#34;)[0].text.strip(),
+        &#34;release_date&#34;: soup.select(&#34;#content_l &gt; div:nth-child(1) &gt; div.l_box_inner &gt; div &gt; div &gt; div.movie_intro_info_r &gt; span:nth-child(5)&#34;)[0].text,
+        &#34;duration&#34;: soup.select(&#34;#content_l &gt; div:nth-child(1) &gt; div.l_box_inner &gt; div &gt; div &gt; div.movie_intro_info_r &gt; span:nth-child(6)&#34;)[0].text.strip(),
+        &#34;release_company&#34;: soup.select(&#34;#content_l &gt; div:nth-child(1) &gt; div.l_box_inner &gt; div &gt; div &gt; div.movie_intro_info_r &gt; span:nth-child(7)&#34;)[0].text.strip(),
+        &#34;imdb&#34;: soup.select(&#34;#content_l &gt; div:nth-child(1) &gt; div.l_box_inner &gt; div &gt; div &gt; div.movie_intro_info_r &gt; span:nth-child(8)&#34;)[0].text.strip()
+    }
+    except:
+        continue
+    resultLIST.append(resultDICT)
+```
+
+----
+
+```python=
+import json
+with open(&#34;result.json&#34;, &#34;w&#34;) as f:
+    json.dump(resultLIST, f, ensure_ascii=False, indent=4)
+```
+
+---
+
+#### Reference:
+1. [爬蟲概論](https://hackmd.io/@HYf-5-EHRqOYghm0W2OB8Q/rJtQ_MMLf)
+2. [STEAM 教育學習網](https://steam.oxxostudio.tw/category/python/spider/about-spider.html)
+3. [網路爬蟲大師班](https://www.webscrapingpro.tw/yahoo-movie-web-scraping-using-python/)
+
+</div>
+            </div>
+
+            <div id="meta" style="display: none;">{&#34;metaMigratedAt&#34;:&#34;2023-06-18T03:28:02.211Z&#34;,&#34;metaMigratedFrom&#34;:&#34;YAML&#34;,&#34;title&#34;:&#34;Python crawler_TA&#34;,&#34;breaks&#34;:&#34;true&#34;,&#34;slideOptions&#34;:&#34;{\&#34;theme\&#34;:\&#34;white\&#34;,\&#34;spotlight\&#34;:{\&#34;enabled\&#34;:false},\&#34;transition\&#34;:\&#34;slide\&#34;,\&#34;slideNumber\&#34;:true}&#34;,&#34;contributors&#34;:&#34;[{\&#34;id\&#34;:\&#34;be042d37-8e4a-4b8c-b371-835cf33fe97b\&#34;,\&#34;add\&#34;:15569,\&#34;del\&#34;:8004}]&#34;}</div>
+
+            
+        </div>
+
+        
+         <script src="https://assets.hackmd.io/build/font-vendor.20350cc4e37635143259.js" defer="defer"></script><script src="https://assets.hackmd.io/build/common-vendor.f59a8489b8ce2d49b975.js" defer="defer"></script><script src="https://assets.hackmd.io/build/slide-vendor.860ac3abbcf53e23341c.js" defer="defer"></script><script src="https://assets.hackmd.io/build/slide-common.fb0162a2ceea4f101052.js" defer="defer"></script><script src="https://assets.hackmd.io/build/slide.bf33395fd9a69cf2903d.js" defer="defer"></script>
+    </body>
+</html>
+
+

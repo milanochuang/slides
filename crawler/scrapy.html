@@ -1,0 +1,1093 @@
+<!doctype html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="csp-nonce" content="f14ebc44-ea12-45c6-a18a-aa027847e57e">
+        
+        
+        <meta name="description" content="Tree structure displaying the directory path&lt;br&gt;">
+        
+        <title>Effective Ways to Scale-Up and Maintain Your Web Crawling Project - HackMD</title>
+        <link rel="icon" type="image/png" href="https://hackmd.io/favicon.png">
+        <link rel="apple-touch-icon" href="https://hackmd.io/apple-touch-icon.png">
+        
+<script nonce="f14ebc44-ea12-45c6-a18a-aa027847e57e">
+  window.domain = 'hackmd.io'
+  window.urlpath = ''
+  window.debug = false
+  window.version = '1.3.0'
+  window.brand = 'HackMD'
+
+  
+
+  window.GOOGLE_API_KEY = 'AIzaSyCjSrqWHhmWJnoI7JlD88XDSaBgiKbaenA'
+  window.GOOGLE_CLIENT_ID = '911617723593-drikdibvvn63slfd6kbqigo8ql1no55s.apps.googleusercontent.com'
+  window.DROPBOX_APP_KEY = 'rdoizrlnkuha23r'
+  
+  window.PLANTUML_SERVER = 'https://ptuml.hackmd.io'
+
+  window.ASSET_URL = 'https://assets.hackmd.io'
+
+  window.USER_CAN_CREATE_TEAM = true
+  window.USER_CAN_DELETE_ACCOUNT = true
+  window.USER_DELETE_ACCOUNT_VIA_EMAIL = true
+  window.PAYMENT_ENABLED = true
+  window.PAYMENT_PROMOTION_BANNER_ENABLED = false
+  window.GITHUB_SYNC_ENABLED = true
+  window.GITLAB_SYNC_ENABLED = false
+  window.GITLAB_SYNC_BASE_URL = ''
+  window.VCS_SYNC_MODE = 'github'
+  window.VCS_PROVIDER_NAME = 'GitHub'
+  window.FREE_TEAM_NUM = 20
+  window.FREE_TEAM_MEMBER_NUM = 3
+  window.FREE_PUBLIC_TEAM_NUM = 10
+  
+  window.ALLOW_ANONYMOUS = true
+  window.ALLOW_ANONYMOUS_EDIT = false
+  window.PUBLIC_OVERVIEW = false
+  window.INTERNAL_PUBLIC_OVERVIEW = false
+  window.FULL_TEXT_SEARCH_ENABLE = false
+  window.ALGOLIA_SEARCH_ENABLE = true
+  window.MARKETING_EMAIL_ENABLE = true
+  
+  
+  
+  
+    window.WALLET_CONNECT_PROJECT_ID = '91d6fa182b725b5895a17a170a5878c1'
+  
+  window.API_MANAGEMENT_UI_ENABLE = true
+  window.FEEDBACK_UI_ENABLE = true
+  window.PUBLISH_ENABLE = true
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  window.TRASH_NOTE_DELETE_AFTER_FREE = 3
+  window.TRASH_NOTE_DELETE_AFTER_PAID = 30
+
+  
+
+  
+    window.IS_OWNER_UPGRADED = false
+  
+
+  
+    window.IMGUR_FALLBACK_CDN = 'https://imgur-backup.hackmd.io'
+  
+
+  
+    window.CLOUD_META_UI = true
+  
+  
+    window.CLOUD_META_API = true
+  
+  
+    window.CLOUD_META_MIGRATION = false
+  
+  
+    window.YAML_METADATA_ENABLED = false
+  
+
+  
+    window.NOTE_CAPACITY_LIMIT = 50
+  
+
+  
+    window.DOCUMENT_MAX_LENGTH = 100000
+  
+
+  
+    window.SOCIAL_NETWORK_FEATURES_ENABLED = true
+  
+
+  
+    window.PUBLISHMENT_MODERATION_ENABLED = true
+  
+
+  
+
+  window.SUGGEST_EDIT_ENABLED = true
+  
+
+  
+    window.REALTIME_CLIENT_WITH_CREDENTIALS = false
+  
+
+  
+</script>
+
+
+        
+         <link href="https://assets.hackmd.io/build/font-vendor.85aea95458609ff85035.css" rel="stylesheet"><link href="https://assets.hackmd.io/build/common-vendor.8badda337754ab1de336.css" rel="stylesheet"><link href="https://assets.hackmd.io/build/slide-vendor.4f9ce891d775b406c282.css" rel="stylesheet"><link href="https://assets.hackmd.io/build/slide.70cc63e70cf401c79bf6.css" rel="stylesheet">
+
+        <!-- style-loader will insert style before this div in development -->
+        <!-- This prevents overwriting reveal.js theme css -->
+        <meta id="style-tag-insertion">
+
+        <!-- For reveal.js theme -->
+        
+        <link rel="stylesheet" href="https://assets.hackmd.io/build/reveal.js/dist/theme/moon.css" id="theme">
+        
+
+        <!-- For overwrite reveal.js -->
+        <link rel="stylesheet" href="https://hackmd.io/build/slide.css">
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js" integrity="sha256-8E4Is26QH0bD52WoQpcB+R/tcWQtpzlCojrybUd7Mxo=" crossorigin="anonymous"></script>
+<![endif]-->
+
+    </head>
+    <body>
+        <div class="container" data-hard-breaks="true">
+            <div class="reveal">
+                <div class="slides" style="display: none;">
+
+&lt;!-- &lt;style type=&#34;text/css&#34;&gt;
+  .reveal p {
+    text-align: left;
+  }
+  .reveal ul {
+    display: block;
+  }
+  .reveal ol {
+    display: block;
+  }
+&lt;/style&gt; --&gt;
+
+## Effective Ways to Scale-Up and Maintain Your Web Crawling Project
+### Hao-Yun Chuang
+###### Nov 4, 2022
+
+---
+
+## What you can bring home today
+1. Tree structure displaying the directory path&lt;br&gt;
+2. Maintain web crawling project using Scrapy&lt;br&gt;
+3. Useful libraries and modules when parsing&lt;br&gt;
+
+---
+
+# Tree directory
+
+----
+
+![](https://i.imgur.com/jlv69an.png)
+
+----
+
+# How?
+
+----
+
+* For Mac user:
+```bash=
+brew install tree
+```
+
+----
+
+* For Windows user:
+&lt;!-- ![](https://i.imgur.com/6nG7Eh8.gif) --&gt;
+
+Please refer to this [website](https://dev.to/flyingduck92/add-tree-to-git-bash-on-windows-10-1eb1)&lt;br&gt;
+&lt;img src=&#34;https://i.imgur.com/PglrmTJ.jpg&#34; style=&#34;background:none; border:none; box-shadow:none; max-width:50%;&#34;&gt;
+
+----
+
+# Now give it a try!
+### Under any directory...
+```bash=
+(base) milanochuang@zhuanghaoyundeMacBook-Pro Documents % tree
+```
+
+---
+
+# Use Scrapy in crawling project
+
+----
+
+# Scrapy
+* **Fast &amp; powerful**
+Rules to extract the data and let Scrapy do the rest
+* **Easily extensible**
+extensible by design, plug new functionality easily without having to touch the core
+* **Portable, Python**
+written in Python and runs on Linux, Windows, Mac
+
+----
+
+# Start virtual Environment
+
+----
+
+## Find a directory you like and run
+```bash=
+python3 -m venv scrapy-tutorial
+```
+
+----
+
+## Mac User
+```bash=
+source scrapy-tutorial/bin/activate
+```
+
+----
+
+## Windows User
+```bash=
+scrapy-tutorial\Scripts\activate.bat
+```
+
+----
+
+```bash=
+git clone https://github.com/milanochuang/spider_tutorial.git
+cd spider_tutorial
+pip install -r requirements.txt
+```
+
+----
+
+# Definition of Terms
+
+----
+
+* **Seed URL**: First page the spider starts with. 
+
+----
+
+* **Crawling**: visiting websites page to page &lt;br&gt;
+:bulb: choose your **Christmas tree** 
+&lt;br&gt;
+* **Extraction**: parsing the data from a page &lt;br&gt;
+:bulb: choose the **decorations** &lt;br&gt;
+
+---
+
+## Start crawling project
+
+----
+
+&lt;center&gt;
+Find a directory and input in the cmd
+&lt;/center&gt;
+
+```bash=
+scrapy startproject books_to_scrape
+```
+
+&lt;center&gt;
+You should see something like this...
+&lt;/center&gt;
+
+```
+New Scrapy project &#39;books_to_scrape&#39;, using template directory &#39;/Users/milanochuang/opt/anaconda3/lib/python3.8/site-packages/scrapy/templates/project&#39;, created in:
+    /Users/milanochuang/Documents/code/spider_tutorial/books_to_scrape
+
+You can start your first spider with:
+    cd books_to_scrape
+    scrapy genspider example example.com
+```
+```bash=
+cd books_to_scrape
+```
+
+----
+
+![](https://i.imgur.com/jlv69an.png)
+
+----
+
+```bash=
+scrapy genspider books books.toscrape.com
+```
+```
+Created spider &#39;books&#39; using template &#39;basic&#39; 
+```
+
+----
+
+```bash=
+tree
+```
+![](https://i.imgur.com/3JVwR2d.png)
+
+----
+
+* You can now open the editor you like.
+* Open the `books_to_scrape` directory (Outer)
+* With your terminal at the same directory aside
+
+---
+
+## Scrapy flow (1)
+* Begin at the seed url (books.toscrape.com)
+* Extract all the books from this page
+* Store the extracted data locally
+    * run `scrapy crawl books -o data.json`
+&lt;!-- * Go through each category at the sidebar
+    * Extract all the books in the categories
+    * Structurize the data --&gt;
+
+----
+
+### Let&#39;s open `books.py`
+
+----
+
+You should see something like this
+```python=
+# -*- coding: utf-8 -*-
+import scrapy
+
+
+class BooksSpider(scrapy.Spider):
+    name = &#34;books&#34;
+    allowed_domains = [&#34;books.toscrape.com&#34;]
+    start_urls = [&#39;http://books.toscrape.com/&#39;]
+
+    def parse(self, response):
+        pass
+```
+
+----
+
+## Remember CSS path?
+~~不可能忘記吧~~
+
+----
+
+CSS path of each book is `.product_pod a ::attr(href)`
+```python=
+import scrapy
+class BooksSpider(scrapy.Spider):
+    name = &#34;books&#34;
+    allowed_domains = [&#34;books.toscrape.com&#34;]
+    start_urls = [&#39;http://books.toscrape.com/&#39;]
+
+    def parse(self, response):
+        for url in response.css(&#34;.product_pod a ::attr(href)&#34;).getall():
+            yield response.follow(url, callback=self.parse_book)
+```
+
+----
+
+## Have you noticed any new friend?
+
+----
+
+* `yield`: try this
+```python=
+power = (i**2 for i in range(100000))
+print(power)
+print(type(power))
+```
+```
+&lt;generator object &lt;genexpr&gt; at 0x7f8ddb35ec10&gt;
+generator
+```
+
+----
+
+* `follow`
+* `callback`
+
+----
+
+## Extract the book information
+
+----
+
+```python=
+import scrapy
+class BooksSpider(scrapy.Spider):
+    name = &#34;books&#34;
+    allowed_domains = [&#34;books.toscrape.com&#34;]
+    start_urls = [&#39;http://books.toscrape.com/&#39;]
+    
+    # 爬取目錄頁的每一本書的連結（挑聖誕樹）
+    
+    def parse(self, response):
+        for url in response.css(&#34;.product_pod a ::attr(href)&#34;).getall():
+            yield response.follow(url, callback=self.parse_book)
+            
+    # 爬取每一本書的資訊（挑裝飾品）
+            
+    def parse_book(self, response):
+        item = {
+            &#34;title&#34;: response.css(&#34;.product_main h1 ::text&#34;).get(),
+            &#34;price&#34;: response.css(&#34;.product_main .price_color ::text&#34;).get(),
+            &#34;url&#34;: response.url,
+            &#34;availability&#34;: response.css(&#34;.product_main .availability ::text&#34;).getall()
+        }
+        yield item
+```
+
+----
+
+### Run the code
+```bash=
+scrapy crawl books -o data.json
+```
+
+----
+
+### Open the file, what happened?
+![](https://i.imgur.com/4ifis1E.png)
+
+----
+
+### Shxt...sth went wrong, let&#39;s revise the code.
+![](https://media.tenor.com/UF5GVNzdWIAAAAAd/doctor-strange-things-just-got-out-of-hand.gif)
+
+----
+
+```python=
+def parse_book(self, response):
+        item = {
+            &#34;title&#34;: response.css(&#34;.product_main h1 ::text&#34;).get(),
+            &#34;price&#34;: response.css(&#34;.product_main .price_color ::text&#34;).get(),
+            &#34;url&#34;: response.url,
+        }
+        availability = response.css(&#34;.product_main .availability ::text&#34;).getall()
+        item[&#34;availability&#34;] = &#34;&#34;.join(availability).strip()
+        yield item
+```
+
+----
+
+### Let&#39;s try again.
+
+----
+
+![](https://i.imgur.com/L15u4ba.png)
+
+----
+
+![](https://media.tenor.com/KMxrZ-A6ev4AAAAM/nice-smack.gif)
+
+---
+
+## Scrapy flow (2)
+* Begin at the seed url
+* ~~Extract all the books from this page~~
+* Go through each category at the sidebar
+    * Extract all the books in the categories
+    * Structurize the data
+* Extract all the books for the page
+* Store the extracted data locally
+    * run `scrapy crawl books -o data.json`
+
+----
+
+Let&#39;s go back to our code.
+```python=
+import scrapy
+class BooksSpider(scrapy.Spider):
+    name = &#34;books&#34;
+    allowed_domains = [&#34;books.toscrape.com&#34;]
+    start_urls = [&#39;http://books.toscrape.com/&#39;]
+    
+    def parse(self, response):
+        for url in response.css(&#34;.product_pod a ::attr(href)&#34;).getall():
+            yield response.follow(url, callback=self.parse_book)
+
+            ...
+```
+
+----
+
+### We need to find the CSS path of the categories
+
+----
+
+Let&#39;s modify our `parse` function.
+```python=
+def parse(self, response):
+    for url in response.css(&#34;.nav-list ul li a ::attr(href)&#34;).getall():
+        yield response.follow(url, callback=self.parse_category)
+```
+
+----
+
+Let&#39;s create a new `parse_category` function.
+```python=
+def parse_category(self, response):
+    for url in response.css(&#34;.product_pod a ::attr(href)&#34;).getall():
+        category_name = response.css(&#34;.page-header h1 ::text&#34;).get()
+            yield response.follow(
+                url,
+                callback=self.parse_book,
+                cb_kwargs={&#34;category_name&#34;: category_name},
+            )
+         if next_page_url := response.css(&#34;.pager .next a ::attr(href)&#34;).get():
+                yield response.follow(
+                    next_page_url,
+                    callback=self.parse_category,
+                )
+```
+
+----
+
+## Have you noticed any new friend?
+
+----
+
+* `:=`
+
+```python=
+n = len(a)
+if n&gt;10:
+    print(f&#34;List is too long ({n} elements, expected &lt;= 10)&#34;)
+```
+```python=
+if (n := len(a)) &gt; 10:
+    print(f&#34;List is too long ({n} elements, expected &lt;= 10)&#34;)
+```
+
+----
+
+* `cb_kwargs`
+
+----
+
+### Run the code
+```bash=
+scrapy crawl books -o data.json
+```
+
+----
+
+![](https://media.tenor.com/KMxrZ-A6ev4AAAAM/nice-smack.gif)
+
+---
+
+## Let&#39;s try to improve our spider.
+
+----
+
+### Define items (what you scraped)
+1. Scrapy&#39;s own item class
+2. Python&#39;s dataclass
+3. attrs library
+4. ...
+
+----
+
+## Now go to `items.py`
+You should see this...
+```python=
+import scrapy
+
+
+class ScrapeBookItem(scrapy.Item):
+    # define the fields for your item here like:
+    # name = scrapy.Field()
+    pass
+```
+
+----
+
+# Delete them all
+
+----
+
+We are using Python&#39;s own dataclass today...
+```python=
+from dataclasses import dataclass
+from typing import Optional
+
+# from scrapy_jsonschema.item import JsonSchemaItem
+
+
+@dataclass
+class BookItem:
+    url: str
+    category_name: Optional[str] = None
+    title: Optional[str] = None
+    price: Optional[str] = None
+    availability: Optional[str] = None
+```
+&lt;!-- 這是因為 url 是在我們所要爬的資料中一定會有的欄位，所以將他設定為必須有的資料，至於其他則是將它設定為 optional，這樣即使爬到沒有的資料，也不會影響爬蟲對資料的爬取 --&gt;
+
+----
+
+Back to `books.py`...
+```python=
+from books_to_scrape.items import BookItem
+# change the code below
+...
+    yield item
+
+# into
+...
+    yield BookItem(**item)
+```
+
+----
+
+Run `scrapy crawl books -o data.json`
+
+&lt;!-- 結果跟之前會是一樣的，這是因為我們還沒有在先前的dataclass再做詳細定義--&gt;
+
+----
+
+### Let&#39;s explore a little bit more
+```python=
+...
+        breakpoint()
+        yield BookItem(**item)
+```
+```bash=
+BookItem(**item)
+BookItem(**item, **{&#34;unknown&#34;: &#34;value&#34;})
+BookItem(title=&#34;Alice in wonderland&#34;)
+```
+
+---
+
+## Decoupling parsing from crawling
+* Concept of Page Objects!
+* Make simpler code
+* spider focus on crawling
+* Page Object focus on extraction
+
+```bash=
+pip install web-poet scrapy-poet
+```
+
+----
+
+Create a new pyfile called `page_objects.py`...
+```python=
+from web_poet import ItemWebPage
+from books_to_scrape.items import BookItem # moved from books.py
+
+class BookPage(ItemWebPage):
+    def to_item(self):
+        item = {
+            &#34;title&#34;: self.css(&#34;.product_main h1 ::text&#34;).get(),
+            &#34;price&#34;: self.css(&#34;.product_main .price_color ::text&#34;).get(),
+            &#34;url&#34;: self.url,
+        }
+        availability = self.css(&#34;.product_main .availability ::text&#34;).getall()
+        item[&#34;availability&#34;] = &#34;&#34;.join(availability).strip()
+        return BookItem(**item)
+        
+```
+
+&lt;!-- Web poet implements Page Object pattern for web scraping --&gt;
+
+----
+
+add the config below at the bottom of `setting.py`
+```python=
+DOWNLOADER_MIDDLEWARES = {
+    &#39;scrapy_poet.InjectionMiddleware&#39;: 543,
+}
+SPIDER_MIDDLEWARES = {
+    &#34;scrapy_poet.RetryMiddleware&#34;: 275,
+}
+```
+
+----
+
+In `books.py`...
+```python=
+from books_to_scrape.page_objects import BookPage
+
+...
+
+def parse_book(self, response, page: BookPage, category_name):
+    item = page.to_item()
+    item.category_name = category_name
+    yield item
+```
+
+Run the code to see if it works.
+&lt;!-- Scrapy poet 在看到page: BookPage時，就會知道要去呼叫 BookPage 的 class --&gt;
+
+----
+
+### Let&#39;s modify other page with web_poet
+
+----
+
+In `page_object.py`...
+```python=
+from web_poet import ItemWebPage, WebPage
+
+class HomePage(WebPage):
+    @property
+    def category_urls(self):
+        return self.css(&#34;.nav-list ul li a ::attr(href)&#34;).getall()
+
+
+class BookCategoryPage(WebPage):
+    @property
+    def book_urls(self):
+        return self.css(&#34;.product_pod a ::attr(href)&#34;).getall()
+
+    @property
+    def category_name(self):
+        return self.css(&#34;.page-header h1 ::text&#34;).get()
+
+    @property
+    def next_page_url(self):
+        return self.css(&#34;.pager .next a ::attr(href)&#34;).get()
+```
+
+----
+
+In `books.py`...
+```python=
+import scrapy
+
+from books_to_scrape.page_objects import HomePage, BookCategoryPage, BookPage
+...
+
+    def parse(self, response, page: HomePage):
+        for url in page.category_urls:
+            yield response.follow(url, callback=self.parse_category)
+
+    def parse_category(self, response, page: BookCategoryPage):
+        for url in page.book_urls:
+            yield response.follow(
+                url,
+                callback=self.parse_book,
+                cb_kwargs={&#34;category_name&#34;: page.category_name},
+            )
+
+            if next_page_url := page.next_page_url:
+                yield response.follow(
+                    next_page_url,
+                    callback=self.parse_category,
+                )
+
+    def parse_book(self, response, page: BookPage, category_name):
+        item = page.to_item()
+        item.category_name = category_name
+        yield item
+```
+&lt;!-- 這麼做可以增加程式的維護性，因為網頁很有可能在未來會改變結構 --&gt;
+
+----
+
+# Let&#39;s compare the code with the first version.
+
+---
+
+# Some other feature
+
+----
+
+## When you have multiple spiders...
+* You&#39;ll need to **manage** and **visualize** the activities
+    * schedule periodic runs
+    * view current and finished runs
+    * search through the extracted items, logs &amp; stats
+    * easy to debug
+    * visualize the running performance
+
+----
+
+## Monitoring the spider
+
+* Custom monitors
+* Support notification via Slack, Telegram, Discord, Email
+
+Run: 
+```bash=
+pip install spidermon
+```
+
+----
+
+In `books.py`...
+```python=
+...
+    start_urls = [&#39;http://books.toscrape.com/&#39;]
+    custom_settings = {
+        &#34;SPIDERMON_ENABLED&#34;: True,
+        &#34;EXTENSIONS&#34;: {
+            &#34;spidermon.contrib.scrapy.extensions.Spidermon&#34;: 500,
+        },
+        &#34;SPIDERMON_SPIDER_CLOSE_MONITORS&#34;: &#34;spidermon.contrib.scrapy.monitors.SpiderCloseMonitorSuite&#34;,
+        &#34;SPIDERMON_MIN_ITEMS&#34;: 10,
+        &#34;SPIDERMON_MAX_ERRORS&#34;: 1,
+        &#34;SPIDERMON_MAX_WARNINGS&#34;: 1000,
+        &#34;SPIDERMON_ADD_FIELD_COVERAGE&#34;: True,
+    }
+
+    def parse(self, response, page: HomePage):
+...
+```
+
+----
+
+![](https://i.imgur.com/V7p3JoS.png)
+
+----
+
+![](https://i.imgur.com/gJDSjxI.png)
+
+----
+
+## Add schema validation
+* Ability to write custom schema validations per item
+* Use JSON schema to define data format
+* CONS: not compatible with dataclass or attrs library
+Run: `pip install jsonschema scrapy-jsonschema`
+
+----
+
+In `items.py`...
+
+```python=
+from scrapy_jsonschema.item import JsonSchemaItem
+
+class BookSchemaItem(JsonSchemaItem):
+    jsonschema = {
+        &#34;$schema&#34;: &#34;http://json-schema.org/draft-07/schema#&#34;,
+        &#34;title&#34;: &#34;Book&#34;,
+        &#34;description&#34;: &#34;A Book item extracted from books.toscrape.com&#34;,
+        &#34;type&#34;: &#34;object&#34;,
+        &#34;properties&#34;: {
+            &#34;url&#34;: {
+                &#34;description&#34;: &#34;Book&#39;s URL&#34;,
+                &#34;type&#34;: &#34;string&#34;,
+                &#34;pattern&#34;: &#34;^https?://[\\S]+$&#34;
+            },
+            &#34;category_name&#34;: {
+                &#34;description&#34;: &#34;Name of the category which the book belongs to&#34;,
+                &#34;type&#34;: &#34;string&#34;
+            },
+            &#34;title&#34;: {
+                &#34;description&#34;: &#34;Book&#39;s title&#34;,
+                &#34;type&#34;: &#34;string&#34;
+            },
+            &#34;price&#34;: {
+                &#34;description&#34;: &#34;Book&#39;s price&#34;,
+                &#34;minimum&#34;: 0,
+                &#34;type&#34;: &#34;number&#34;
+            },
+            &#34;availability&#34;: {
+                &#34;description&#34;: &#34;Book&#39;s availability&#34;,
+                &#34;type&#34;: &#34;string&#34;
+            }
+        },
+        &#34;required&#34;: [&#34;url&#34;]
+    }
+```
+
+----
+
+In `page_objects.py`...
+```python=
+from books_to_scrape.items import BookItem, BookSchemaItem
+...
+# change
+return BookItem(**Item) 
+# to
+return BookSchemaItem(**Item)
+```
+
+----
+
+In `books.py`...
+```python=
+# delete the custom monitor setting
+
+...
+def parse_book(self, response, page: BookPage, category_name):
+    item = page.to_item()
+    item[&#39;category_name&#39;] = category_name
+    yield item
+```
+&lt;!-- This is because json schema does not accept field attribute --&gt;
+
+---
+
+## What about dynamic page?
+
+----
+
+```bash=
+scrapy genspider quotes quotes.toscrape.com
+pip install scrapy-playwright
+playwright install
+sudo playwright install-deps
+```
+
+----
+
+In `quotes.py`...
+```python=
+class QuotesSpider(scrapy.Spider):
+    name = &#39;quotes&#39;
+    allowed_domains = [&#39;quotes.toscrape.com&#39;]
+
+    custom_settings = {
+        &#34;DOWNLOAD_HANDLERS&#34;: {
+            &#34;http&#34;: &#34;scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler&#34;,
+            &#34;https&#34;: &#34;scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler&#34;,
+        },
+        &#34;TWISTED_REACTOR&#34;: &#34;twisted.internet.asyncioreactor.AsyncioSelectorReactor&#34;,
+    }
+
+    def start_requests(self):
+        yield scrapy.Request(
+            &#34;http://quotes.toscrape.com/js&#34;,
+            callback=self.parse,
+            meta={&#34;playwright&#34;: True},
+        )
+
+    def parse(self, response):
+        for quote in response.css(&#34;.quote .text ::text&#34;).getall():
+            yield {&#34;quote&#34;: quote}
+```
+
+---
+
+# Helper libraries
+
+----
+
+```python=
+from number_parser import parse
+print(parse(&#34;One two three go!&#34;))
+print(parse_number(&#34;twenty three&#34;))
+print(parse_ordinal(&#34;seventy fifth&#34;))
+```
+```
+&#39;1 2 3 go!&#39;
+23
+75
+```
+
+----
+
+```python=
+from price_parser import Price, parse_price
+print(Price.fromstring(&#34;22,90 €&#34;))
+```
+```
+Price(amount=Decimal(&#39;22.90&#39;), currency=&#39;€&#39;)
+```
+
+----
+
+```python=
+import dateparser
+dateparser.parse(&#34;Fri, 12 Dec 2014 10:55:50&#34;)
+```
+```
+datetime.datetime(2014, 12, 12, 10, 55, 50)
+```
+
+----
+
+```python=
+import requests, extruct
+page = requests.get(&#34;https://tw.pycon.org/2022/en-us&#34;)
+print(extruct.extract(page.text))
+```
+
+----
+
+```bash=
+deactivate
+```
+
+----
+
+# [Full Code](https://github.com/milanochuang/Scrapy_tutorial)
+
+----
+
+## Source:
+* [Effective Ways to Scale-Up and Maintain Your Web Crawling Project｜Kevin Lloyd Bernal｜PyCon APAC 2022
+](https://www.youtube.com/watch?v=pLucY2PoSts&amp;list=PLqtzN042QpfdkQbkOlwtEJMBGZHHsvimo&amp;index=20)
+* [Python 裡的 yield — 讓你簡單、快速瞭解 yield 的概念](https://chriskang028.medium.com/python-裡的-yield-讓你簡單-快速瞭解-yield-的概念-f660521f3aa7)
+* [Scrapy Documentation](https://docs.scrapy.org)
+
+---
+
+&lt;!-- &lt;style type=&#34;text/css&#34;&gt;
+  .reveal p {
+    text-align: left;
+  }
+  .reveal ul {
+    display: block;
+  }
+  .reveal ol {
+    display: block;
+  }
+&lt;/style&gt; --&gt;
+
+# Debug note
+
+----
+
+## if this happens...
+```
+ERROR: Loading &#34;scrapy.core.downloader.handlers.http.HTTPDownloadHandler&#34; for scheme &#34;https&#34;
+```
+## or this...
+```
+ModuleNotFoundError: No module named &#39;attrs&#39;
+```
+## try run
+```
+pip install Twisted==21.7.0
+```
+
+</div>
+            </div>
+
+            <div id="meta" style="display: none;">{&#34;metaMigratedAt&#34;:&#34;2023-06-17T13:14:22.572Z&#34;,&#34;metaMigratedFrom&#34;:&#34;YAML&#34;,&#34;title&#34;:&#34;Effective Ways to Scale-Up and Maintain Your Web Crawling Project&#34;,&#34;breaks&#34;:&#34;true&#34;,&#34;slideOptions&#34;:&#34;{\&#34;theme\&#34;:\&#34;moon\&#34;,\&#34;spotlight\&#34;:{\&#34;enabled\&#34;:true},\&#34;transition\&#34;:\&#34;slide\&#34;}&#34;,&#34;contributors&#34;:&#34;[{\&#34;id\&#34;:\&#34;be042d37-8e4a-4b8c-b371-835cf33fe97b\&#34;,\&#34;add\&#34;:19703,\&#34;del\&#34;:1648}]&#34;,&#34;description&#34;:&#34;Tree structure displaying the directory path&lt;br&gt;&#34;}</div>
+
+            
+        </div>
+
+        
+         <script src="https://assets.hackmd.io/build/font-vendor.20350cc4e37635143259.js" defer="defer"></script><script src="https://assets.hackmd.io/build/common-vendor.f59a8489b8ce2d49b975.js" defer="defer"></script><script src="https://assets.hackmd.io/build/slide-vendor.860ac3abbcf53e23341c.js" defer="defer"></script><script src="https://assets.hackmd.io/build/slide-common.fb0162a2ceea4f101052.js" defer="defer"></script><script src="https://assets.hackmd.io/build/slide.bf33395fd9a69cf2903d.js" defer="defer"></script>
+    </body>
+</html>
+
+

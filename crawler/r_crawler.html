@@ -1,0 +1,957 @@
+<!doctype html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="csp-nonce" content="174e4256-d743-480b-b35b-8e3d4b2760bf">
+        
+        
+        <meta name="description" content="  &lt;!--會寫字寫句子，但不代表寫得出好文章--&gt; # 網路爬蟲 :spider:   ----  # 資料 data &lt;!--我們分析語言時需要什麼？資料。如果沒有資料，即使再會寫程式我們也巧婦難">
+        
+        <title>R crawler - HackMD</title>
+        <link rel="icon" type="image/png" href="https://hackmd.io/favicon.png">
+        <link rel="apple-touch-icon" href="https://hackmd.io/apple-touch-icon.png">
+        
+<script nonce="174e4256-d743-480b-b35b-8e3d4b2760bf">
+  window.domain = 'hackmd.io'
+  window.urlpath = ''
+  window.debug = false
+  window.version = '1.3.0'
+  window.brand = 'HackMD'
+
+  
+
+  window.GOOGLE_API_KEY = 'AIzaSyCjSrqWHhmWJnoI7JlD88XDSaBgiKbaenA'
+  window.GOOGLE_CLIENT_ID = '911617723593-drikdibvvn63slfd6kbqigo8ql1no55s.apps.googleusercontent.com'
+  window.DROPBOX_APP_KEY = 'rdoizrlnkuha23r'
+  
+  window.PLANTUML_SERVER = 'https://ptuml.hackmd.io'
+
+  window.ASSET_URL = 'https://assets.hackmd.io'
+
+  window.USER_CAN_CREATE_TEAM = true
+  window.USER_CAN_DELETE_ACCOUNT = true
+  window.USER_DELETE_ACCOUNT_VIA_EMAIL = true
+  window.PAYMENT_ENABLED = true
+  window.PAYMENT_PROMOTION_BANNER_ENABLED = false
+  window.GITHUB_SYNC_ENABLED = true
+  window.GITLAB_SYNC_ENABLED = false
+  window.GITLAB_SYNC_BASE_URL = ''
+  window.VCS_SYNC_MODE = 'github'
+  window.VCS_PROVIDER_NAME = 'GitHub'
+  window.FREE_TEAM_NUM = 20
+  window.FREE_TEAM_MEMBER_NUM = 3
+  window.FREE_PUBLIC_TEAM_NUM = 10
+  
+  window.ALLOW_ANONYMOUS = true
+  window.ALLOW_ANONYMOUS_EDIT = false
+  window.PUBLIC_OVERVIEW = false
+  window.INTERNAL_PUBLIC_OVERVIEW = false
+  window.FULL_TEXT_SEARCH_ENABLE = false
+  window.ALGOLIA_SEARCH_ENABLE = true
+  window.MARKETING_EMAIL_ENABLE = true
+  
+  
+  
+  
+    window.WALLET_CONNECT_PROJECT_ID = '91d6fa182b725b5895a17a170a5878c1'
+  
+  window.API_MANAGEMENT_UI_ENABLE = true
+  window.FEEDBACK_UI_ENABLE = true
+  window.PUBLISH_ENABLE = true
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  window.TRASH_NOTE_DELETE_AFTER_FREE = 3
+  window.TRASH_NOTE_DELETE_AFTER_PAID = 30
+
+  
+
+  
+    window.IS_OWNER_UPGRADED = false
+  
+
+  
+    window.IMGUR_FALLBACK_CDN = 'https://imgur-backup.hackmd.io'
+  
+
+  
+    window.CLOUD_META_UI = true
+  
+  
+    window.CLOUD_META_API = true
+  
+  
+    window.CLOUD_META_MIGRATION = false
+  
+  
+    window.YAML_METADATA_ENABLED = false
+  
+
+  
+    window.NOTE_CAPACITY_LIMIT = 50
+  
+
+  
+    window.DOCUMENT_MAX_LENGTH = 100000
+  
+
+  
+    window.SOCIAL_NETWORK_FEATURES_ENABLED = true
+  
+
+  
+    window.PUBLISHMENT_MODERATION_ENABLED = true
+  
+
+  
+
+  window.SUGGEST_EDIT_ENABLED = true
+  
+
+  
+    window.REALTIME_CLIENT_WITH_CREDENTIALS = false
+  
+
+  
+</script>
+
+
+        
+         <link href="https://assets.hackmd.io/build/font-vendor.85aea95458609ff85035.css" rel="stylesheet"><link href="https://assets.hackmd.io/build/common-vendor.8badda337754ab1de336.css" rel="stylesheet"><link href="https://assets.hackmd.io/build/slide-vendor.4f9ce891d775b406c282.css" rel="stylesheet"><link href="https://assets.hackmd.io/build/slide.70cc63e70cf401c79bf6.css" rel="stylesheet">
+
+        <!-- style-loader will insert style before this div in development -->
+        <!-- This prevents overwriting reveal.js theme css -->
+        <meta id="style-tag-insertion">
+
+        <!-- For reveal.js theme -->
+        
+        <link rel="stylesheet" href="https://assets.hackmd.io/build/reveal.js/dist/theme/defaultTheme.css" id="theme">
+        
+
+        <!-- For overwrite reveal.js -->
+        <link rel="stylesheet" href="https://hackmd.io/build/slide.css">
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js" integrity="sha256-8E4Is26QH0bD52WoQpcB+R/tcWQtpzlCojrybUd7Mxo=" crossorigin="anonymous"></script>
+<![endif]-->
+
+    </head>
+    <body>
+        <div class="container" data-hard-breaks="true">
+            <div class="reveal">
+                <div class="slides" style="display: none;">
+
+&lt;!--會寫字寫句子，但不代表寫得出好文章--&gt;
+# 網路爬蟲 :spider: 
+
+----
+
+# 資料 data
+&lt;!--我們分析語言時需要什麼？資料。如果沒有資料，即使再會寫程式我們也巧婦難為無米之炊--&gt;
+
+----
+
+# 巧婦難為無米之炊
+
+---
+
+### 今天可以學到什麼？
+
+&lt;font size=6&gt;
+    
+1. 認識JSON檔
+2. 認識網頁基本架構（html+CSS, maybe Javascript?）
+3. 爬蟲的基本概念
+4. ```readLines()```
+5. ```rvest()```
+6. 怎麼找CSS或XPath呢？
+7. 範例：PTT爬蟲
+8. 範例：PChome爬蟲
+    
+&lt;/font&gt;
+
+---
+
+# 認識JSON檔
+
+----
+
+## 所以到底什麼是JSON檔?
+* **JavaScript Object Notation** 的縮寫
+* 常用於網站上的**資料呈現、傳輸**
+* 可在 JSON 之內加入**相同的基本資料類型**
+
+----
+
+## JSON檔長什麼樣子？
+```r=
+library(jsonlite)
+metroCity_heroes &lt;- &#39;{
+  &#34;squadName&#34;: &#34;Super hero squad&#34;,
+  &#34;homeTown&#34;: &#34;Metro City&#34;,
+  &#34;formed&#34;: 2016,
+  &#34;secretBase&#34;: &#34;Super tower&#34;,
+  &#34;active&#34;: true,
+  &#34;members&#34;: [
+    {
+      &#34;name&#34;: &#34;Molecule Man&#34;,
+      &#34;age&#34;: 29,
+      &#34;secretIdentity&#34;: &#34;Dan Jukes&#34;,
+      &#34;powers&#34;: [
+        &#34;Radiation resistance&#34;,
+        &#34;Turning tiny&#34;,
+        &#34;Radiation blast&#34;
+      ]
+    },
+    {
+      &#34;name&#34;: &#34;Madame Uppercut&#34;,
+      &#34;age&#34;: 39,
+      &#34;secretIdentity&#34;: &#34;Jane Wilson&#34;,
+      &#34;powers&#34;: [
+        &#34;Million tonne punch&#34;,
+        &#34;Damage resistance&#34;,
+        &#34;Superhuman reflexes&#34;
+      ]
+    },
+    {
+      &#34;name&#34;: &#34;Eternal Flame&#34;,
+      &#34;age&#34;: 1000000,
+      &#34;secretIdentity&#34;: &#34;Unknown&#34;,
+      &#34;powers&#34;: [
+        &#34;Immortality&#34;,
+        &#34;Heat Immunity&#34;,
+        &#34;Inferno&#34;,
+        &#34;Teleportation&#34;,
+        &#34;Interdimensional travel&#34;
+      ]
+    }
+  ]
+}&#39;
+metroCityLIST &lt;- fromJSON(metroCity_heroes)
+metroCityLIST[&#39;squadName&#39;]
+class(metroCityLIST)
+```
+```r=
+$squadName
+&#34;Super hero squad&#34;
+&#34;list&#34;
+```
+
+----
+
+## JSON as array
+```r=
+friends_starring &lt;- &#39;[
+    {
+        &#34;character&#34;: &#34;Rachel Green&#34;,
+        &#34;star&#34;: &#34;Jennifer Aniston&#34;
+    },
+    {
+        &#34;character&#34;: &#34;Monica Geller&#34;,
+        &#34;star&#34;: &#34;Courteney Cox&#34;
+    },
+    {
+        &#34;character&#34;: &#34;Phoebe Buffay&#34;,
+        &#34;star&#34;: &#34;Lisa Kudrow&#34;
+    },
+    {
+        &#34;character&#34;: &#34;Joey Tribbiani&#34;,
+        &#34;star&#34;: &#34;Matt LeBlanc&#34;
+    },
+    {
+        &#34;character&#34;: &#34;Chandler Bing&#34;,
+        &#34;star&#34;: &#34;Matthew Perry&#34;
+    },
+    {
+        &#34;character&#34;: &#34;Ross Geller&#34;,
+        &#34;star&#34;: &#34;David Schwimmer&#34;
+    }
+]&#39;
+
+fs_df &lt;- fromJSON(friends_starring)
+for (i in 1:nrow(fs_df)){
+    print(paste(&#34;誰飾演&#34;, fs_df[i, &#34;character&#34;], &#34;：&#34;, fs_df[i, &#34;star&#34;]))
+}
+```
+```r=
+[1] &#34;誰飾演 Rachel Green ： Jennifer Aniston&#34;
+[1] &#34;誰飾演 Monica Geller ： Courteney Cox&#34;
+[1] &#34;誰飾演 Phoebe Buffay ： Lisa Kudrow&#34;
+[1] &#34;誰飾演 Joey Tribbiani ： Matt LeBlanc&#34;
+[1] &#34;誰飾演 Chandler Bing ： Matthew Perry&#34;
+[1] &#34;誰飾演 Ross Geller ： David Schwimmer&#34;
+```
+
+----
+
+```r=
+head(fs_df)
+```
+```csvpreview {header=&#34;true&#34;}
+       character,             star
+    Rachel Green, Jennifer Aniston
+   Monica Geller,    Courteney Cox
+   Phoebe Buffay,      Lisa Kudrow
+  Joey Tribbiani,     Matt LeBlanc
+   Chandler Bing,    Matthew Perry
+     Ross Geller,  David Schwimmer
+```
+
+---
+
+# 認識網頁基本架構
+## html+CSS, maybe Javascript?
+
+----
+
+## 先祝大家聖誕快樂 :christmas_tree: 
+
+----
+
+## 說到聖誕節，大家想到什麼？
+
+----
+
+&lt;img src=&#34;https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Tannenbaum_Geschenke_und_der_Mond_2007_by-RaBoe.jpg/800px-Tannenbaum_Geschenke_und_der_Mond_2007_by-RaBoe.jpg&#34; style=&#34;background:none; border:none; box-shadow:none; max-width:50%;&#34;&gt;
+
+----
+
+* 樹本身：html
+* 裝飾品、燈串：CSS
+* 讓燈一閃一閃：Javascript
+
+----
+
+## 沒概念？
+### 來看看實際上長什麼樣子
+
+----
+
+```htmlmixed=
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&#34;utf-8&#34;&gt;
+    &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width&#34;&gt;
+    &lt;title&gt;Basic HTML Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;p style = &#34;color: red;&#34;&gt;Hello HTML&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+```
+
+----
+
+```htmlmixed=
+/*style.css*/
+#html {color: red;}
+#css {color: blue;}
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&#34;utf-8&#34;&gt;
+    &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width&#34;&gt;
+    &lt;link rel=&#34;stylesheet&#34; href=&#34;style.css&#34;&gt;
+    &lt;title&gt;Basic HTML Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;p&gt;Hello HTML&lt;/p&gt;
+    &lt;p&gt;Hello CSS&lt;/p&gt;
+    &lt;p class=&#34;topic&#34;&gt;Hello HTML&lt;/p&gt;
+    &lt;p class=&#34;topic&#34;&gt;Hello CSS&lt;/p&gt;
+    &lt;p id=&#34;frame&#34;&gt;Hello HTML&lt;/p&gt;
+    &lt;p id=&#34;frame&#34;&gt;Hello CSS&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+```
+
+---
+
+# 爬蟲基本概念
+
+----
+
+## 既然網頁是聖誕樹...
+
+----
+
+## 那爬蟲就是...找裝飾品！
+&lt;img src=&#34;https://media4.giphy.com/media/l2YWiHWiFHwmbwIso/giphy.gif&#34; style=&#34;background:none; border:none; box-shadow:none; max-width:150%;&#34;&gt;
+
+----
+
+## 寫成程式會變怎樣呢
+
+&lt;font size=4&gt;**LET** (urlLIST, dataLIST) **BE** (empty list, empty list)&amp;#160; &amp;#160; &amp;#160; &amp;#160;&amp;#160; &amp;#160; &amp;#160; &amp;#160;&amp;#160; &amp;#160;```urlLIST=地點清單，dataLIST=購物車```
+**FOR EACH** index page URL **DO** &amp;#160; &amp;#160; &amp;#160; &amp;#160;&amp;#160; &amp;#160; &amp;#160; &amp;#160;&amp;#160; &amp;#160; &amp;#160; &amp;#160;&amp;#160; &amp;#160; &amp;#160; &amp;#160;&amp;#160; &amp;#160; &amp;#160; &amp;#160;&amp;#160; &amp;#160; &amp;#160; &amp;#160;&amp;#160; &amp;#160; &amp;#160; &amp;#160;&amp;#160; &amp;#160;&amp;#160; &amp;#160; &amp;#160; &amp;#160;&amp;#160; &amp;#160; &amp;#160; &amp;#160;&amp;#160; &amp;#160; &amp;#160; &amp;#160;&amp;#160; &amp;#160; &amp;#160; &amp;#160;```在每一個購物中心裡```
+&amp;#160; &amp;#160; &amp;#160; &amp;#160;**ADD** article page URL **IN** urlLIST &amp;#160; &amp;#160; &amp;#160; &amp;#160;&amp;#160; &amp;#160; &amp;#160; &amp;#160;&amp;#160; &amp;#160; &amp;#160; &amp;#160;&amp;#160; &amp;#160; &amp;#160; &amp;#160;&amp;#160; &amp;#160; &amp;#160; &amp;#160;&amp;#160; &amp;#160; &amp;#160; &amp;#160;&amp;#160; &amp;#160; &amp;#160; &amp;#160;&amp;#160; &amp;#160; &amp;#160; &amp;#160;&amp;#160; &amp;#160; ```找到每一棵你想找的聖誕樹```
+**FOR EACH** article page URL **IN** urlLIST &amp;#160; &amp;#160; &amp;#160; &amp;#160;&amp;#160; &amp;#160; &amp;#160; &amp;#160;&amp;#160; &amp;#160; &amp;#160; &amp;#160;&amp;#160; &amp;#160; &amp;#160; &amp;#160;&amp;#160; &amp;#160; &amp;#160; &amp;#160;&amp;#160; &amp;#160; &amp;#160; &amp;#160;&amp;#160; &amp;#160; &amp;#160; &amp;#160;&amp;#160; &amp;#160;&amp;#160; &amp;#160; &amp;#160; &amp;#160;&amp;#160; &amp;#160; &amp;#160; &amp;#160;&amp;#160; &amp;#160; &amp;#160;```從每一棵聖誕樹上```
+&amp;#160; &amp;#160; &amp;#160; &amp;#160;Each_Page_Data **←** **PARSE(** article page URL **)** &amp;#160; &amp;#160;&amp;#160; &amp;#160;&amp;#160; &amp;#160;&amp;#160; &amp;#160;&amp;#160; &amp;#160;&amp;#160; &amp;#160;&amp;#160; &amp;#160;&amp;#160; &amp;#160;&amp;#160;&amp;#160;```從特定的位置找到你想找的裝飾品```
+&amp;#160; &amp;#160; &amp;#160; &amp;#160;**ADD** Each_Page_Data **TO** dataLIST &amp;#160; &amp;#160; &amp;#160;&amp;#160; &amp;#160; &amp;#160; &amp;#160;&amp;#160; &amp;#160; &amp;#160; &amp;#160;&amp;#160; &amp;#160; &amp;#160; &amp;#160;&amp;#160; &amp;#160; &amp;#160; &amp;#160;&amp;#160; &amp;#160;&amp;#160; &amp;#160; &amp;#160; &amp;#160;&amp;#160; &amp;#160; &amp;#160; &amp;#160;&amp;#160; &amp;#160; &amp;#160; &amp;#160;&amp;#160; &amp;#160; &amp;#160; &amp;#160;&amp;#160;&amp;#160;```把裝飾品裝到籃子裡```&lt;/font&gt;
+
+---
+
+# ```readLines()```
+
+----
+
+### 如果你要爬的網頁結構相對簡單```readLines()```是相對好的選擇
+
+----
+
+# 為什麼?
+
+----
+
+## Guideline:
+
+1. 呼叫內建的 ```readLines()``` 函式
+2. 將html解析成字串向量（vector）
+3. 用正規表達式來清理資料 &lt;br/&gt;
+Mama Mia, here we go again!
+
+----
+
+### 第一次爬行
+&lt;font size=5&gt;[The One Where Monica Gets a New Roommate (The Pilot-The Uncut Version)](https://livesinabox.com/friends/season1/101pilot.htm)&lt;/font&gt;
+```r=
+library(magrittr)
+fs_s1e1 &lt;- readLines(&#34;http://livesinabox.com/friends/season1/101pilot.htm&#34;)
+head(fs_s1e1)
+```
+```r=
+[1] &#34;&lt;html&gt;&#34;                                                                              
+[2] &#34;&#34;                                                                                    
+[3] &#34;&lt;head&gt;&#34;                                                                              
+[4] &#34;&lt;title&gt;The One Where Monica Gets a New Roomate (The Pilot-The Uncut Version)&lt;/title&gt;&#34;
+[5] &#34;&lt;/head&gt;&#34;                                                                             
+[6] &#34;&#34;
+```
+
+----
+
+我們要分析在影集六人行裡面，每個角色各有幾句台詞...
+觀察資料，你發現了什麼？
+```r=
+character_pattern &lt;- &#34;Joey:|Monica:|Ross:|Rachel:|Chandler:|Phoebe:&#34;
+found_character &lt;- grepl(pattern = character_pattern, fs_s1e1)
+fs_s1e1[found_character] %&gt;%
+    head()
+```
+```r=
+[1] &#34;&lt;p align=\&#34;left\&#34;&gt;&lt;font size=\&#34;3\&#34;&gt;&lt;b&gt;Monica:&lt;/b&gt; There&#39;s nothing to tell! He&#39;s just some guy&#34; 
+[2] &#34;&lt;p align=\&#34;left\&#34;&gt;&lt;font size=\&#34;3\&#34;&gt;&lt;b&gt;Joey:&lt;/b&gt; C&#39;mon, you&#39;re going out with the guy! There&#39;s&#34; 
+[3] &#34;&lt;p align=\&#34;left\&#34;&gt;&lt;font size=\&#34;3\&#34;&gt;&lt;b&gt;Chandler:&lt;/b&gt; &lt;font color=\&#34;#0000FF\&#34;&gt;All right Joey, be&#34;
+[4] &#34;&lt;p align=\&#34;left\&#34;&gt;&lt;font size=\&#34;3\&#34;&gt;&lt;b&gt;Phoebe:&lt;/b&gt; Wait, does he eat chalk?&lt;/font&gt;&lt;/p&gt;&#34;         
+[5] &#34;&lt;p align=\&#34;left\&#34;&gt;&lt;font size=\&#34;3\&#34;&gt;&lt;b&gt;Phoebe:&lt;/b&gt; Just, &#39;cause, I don&#39;t want her to go through&#34;
+[6] &#34;&lt;p align=\&#34;left\&#34;&gt;&lt;font size=\&#34;3\&#34;&gt;&lt;b&gt;Monica:&lt;/b&gt; Okay, everybody relax. This is not even a&#34;
+```
+
+----
+
+現在來清理不要的標籤: ```&lt;p&gt;&lt;/p&gt;```、```&lt;b&gt;&lt;/b&gt;```、```&lt;strong&gt;&lt;/strong&gt;```
+```r=
+table_result &lt;- fs_s1e1[found_character] %&gt;%
+    gsub(pattern = &#34;&lt;p(&gt;|.*)(&lt;b&gt;|&lt;strong&gt;)&#34;, replacement = &#34;&#34;) %&gt;%
+    gsub(pattern = &#34;(&lt;/b&gt;|&lt;/strong&gt;).*&#34;, replacement = &#34;&#34;) %&gt;%
+    gsub(pattern = &#34;(:\\s)|:&#34;, replacement = &#34;&#34;) %&gt;%
+    table()
+sort(table_result, decreasing = TRUE)
+```
+```r=
+ .
+          Monica          Rachel            Ross            Joey        Chandler 
+              72              48              47              41              39 
+          Phoebe Ross and Rachel 
+              19               1
+```
+
+----
+
+```r=
+barplot(sort(table_result, decreasing = TRUE), las = 1, cex.names = 0.7, main = &#34;Number of Scripts in Episode 1, Season 1&#34;)
+```
+&lt;img src=&#34;https://i.imgur.com/sNyGhkR.png&#34; style=&#34;background:none; border:none; box-shadow:none; max-width:100%;&#34;&gt;
+
+----
+
+### 我們發現了什麼?
+[La La Land](http://www.imdb.com/title/tt3783958/) -&gt; 按下右鍵查看原始碼，出事了阿伯
+```r=
+head(readLines(&#34;http://www.imdb.com/title/tt3783958/&#34;))
+```
+```r=
+Warning in readLines(&#34;http://www.imdb.com/title/tt3783958/&#34;): 於 &#39;http://
+www.imdb.com/title/tt3783958/&#39; 找到不完整的最後一列
+```
+```r=
+[1] &#34;&lt;!DOCTYPE html&gt;&lt;html lang=\&#34;en-US\&#34; xmlns:og=\&#34;http://opengraphprotocol.org/schema/\&#34; xmlns:fb=\&#34;http://www.facebook.com/2008/fbml\&#34;&gt;&lt;head&gt;&lt;script&gt;&#34;
+[2] &#34;var ue_t0=ue_t0||+new Date();&#34;                                                                                                                      
+[3] &#34;&#34;                                                                                                                                                   
+[4] &#34;window.ue_ihb = (window.ue_ihb || window.ueinit || 0) + 1;&#34;                                                                                         
+[5] &#34;if (window.ue_ihb === 1) {&#34;                                                                                                                         
+[6] &#34;&#34;
+```
+
+---
+
+# ```rvest()```
+
+----
+
+* 直接擷取想要的html標籤
+
+```r=
+url &lt;- &#34;http://www.imdb.com/title/tt3783958/&#34;
+lalaland &lt;- read_html(url)
+rating &lt;- lalaland %&gt;%
+    html_nodes(css = &#34;div[class=&#39;RatingBar__RatingContainer-sc-85l9wd-0 hNqCJh TitleBlock__HideableRatingBar-sc-1nlhx7j-4 bhTVMj&#39;] span[class=&#39;AggregateRatingButton__RatingScore-sc-1ll29m0-1 iTLWoV&#39;]&#34;) 
+rating
+```
+```r=
+{xml_nodeset (1)}
+[1] &lt;span class=&#34;AggregateRatingButton__RatingScore-sc-1ll29m0-1 iTLWoV&#34;&gt;8.0&lt;/span&gt;
+```
+
+----
+
+* 直接取得標籤內的文字（也就是去除標籤）
+```r=
+rating &lt;- lalaland %&gt;%
+    html_nodes(css = &#34;div[class=&#39;RatingBar__RatingContainer-sc-85l9wd-0 hNqCJh TitleBlock__HideableRatingBar-sc-1nlhx7j-4 bhTVMj&#39;] span[class=&#39;AggregateRatingButton__RatingScore-sc-1ll29m0-1 iTLWoV&#39;]&#34;)  %&gt;%
+    html_text() %&gt;%
+    as.numeric()
+rating
+```
+```r=
+8
+```
+
+----
+
+* 另外一種做法: 使用 **XPath**
+
+```r=
+rating &lt;- lalaland %&gt;%
+    html_nodes(xpath = &#34;/html[1]/body[1]/div[2]/main[1]/div[1]/section[1]/section[1]/div[3]/section[1]/section[1]/div[1]/div[2]/div[1]/div[1]/a[1]/div[1]/div[1]/div[2]/div[1]/span[1]&#34;) %&gt;%
+    html_text() %&gt;%
+    as.numeric()
+rating
+```
+```r=
+8
+```
+
+---
+
+## 怎麼找CSS或XPath呢？
+
+----
+
+## 一般情形
+#### 請先下載擴充程式
+
+----
+
+&lt;font size=6&gt;
+
+* Chrome: [ChroPath](https://chrome.google.com/webstore/detail/chropath/ljngjbnaijcbncmcnjfhigebomdlkcjo?utm_source=chrome-ntp-icon)
+    * (網頁任意處右鍵) -&gt; 檢查 -&gt; 元素 -&gt; (右側「樣式」列的最右側，若沒看到則按&#34;&gt;&gt;&#34;) -&gt; (檢查元素) -&gt; (複製CSS或XPath)
+* Firefox: [SelectorsHub](https://addons.mozilla.org/zh-TW/firefox/addon/selectorshub/?utm_source=addons.mozilla.org&amp;utm_medium=referral&amp;utm_content=search)
+    * (網頁任意處右鍵) -&gt; 檢測 -&gt; 檢測器 -&gt; (右側「樣式」列的最右側，若沒看到則按向下箭頭樣式) -&gt; (檢查元素) -&gt; (複製CSS或XPath)
+    * Alternatives: 移動游標至欲檢測之目標上方 -&gt; (右鍵) -&gt; SelectorsHub -&gt; &#34;Copy Rel cssSelector&#34; or &#34;Copy Rel XPath&#34;
+
+&lt;/font&gt;
+
+----
+
+![](https://i.imgur.com/PsH79uk.png)
+
+----
+
+## 特殊情形
+#### [Abe Hiroshi&#39;s Official Website](http://abehiroshi.la.coocan.jp/)
+
+----
+
+![](https://i.imgur.com/Unz3Y4s.jpg)
+
+----
+
+```r=
+url &lt;- &#34;http://abehiroshi.la.coocan.jp/&#34;
+AbeHiroshi &lt;- read_html(url)
+AbeHiroshi
+```
+```r=
+{html_document}
+&lt;html&gt;
+[1] &lt;head&gt;\n&lt;meta http-equiv=&#34;Content-Type&#34; content=&#34;text/html; charset=UTF-8 ...
+[2] &lt;frameset cols=&#34;18,82&#34;&gt;\n&lt;frame src=&#34;menu.htm&#34; marginheight=&#34;0&#34; marginwid ...
+```
+
+----
+
+![](https://i.imgur.com/byWCUSW.png)
+
+----
+
+![](https://i.imgur.com/9IZNgGE.png)
+
+---
+
+# 範例一
+# PTT 爬蟲
+
+----
+
+```r=
+# Find the url of the index page (Places where you want to buy Christmas tree)
+url_vec &lt;- c()
+pageNum &lt;- 9501:1
+urls &lt;- paste(&#34;https://www.ptt.cc/bbs/movie/index&#34;, pageNum,&#34;.html&#34;, sep=&#34;&#34;)
+```
+
+----
+
+![](https://i.imgur.com/BJC8pyw.png)
+
+----
+
+```r=
+# Write a function that would collect all the url from the index page (Collect all the Christmas trees from the mall)
+crawlURL &lt;- function(url){
+  raw_html &lt;- read_html(url)
+  article_link_xpath &lt;- &#34;//div[@class=&#39;title&#39;]/a&#34;
+  article_links &lt;- raw_html %&gt;%
+    html_nodes(xpath = article_link_xpath) %&gt;%
+    html_attr(&#34;href&#34;)
+  article_links &lt;- paste(&#34;https://www.ptt.cc&#34;, article_links, sep = &#34;&#34;)
+  return(article_links)
+}
+head(crawlURL(&#34;https://www.ptt.cc/bbs/movie/index9501.html&#34;))
+```
+```r=
+[1] &#34;https://www.ptt.cc/bbs/movie/M.1638707290.A.BD5.html&#34;
+[2] &#34;https://www.ptt.cc/bbs/movie/M.1638707967.A.706.html&#34;
+[3] &#34;https://www.ptt.cc/bbs/movie/M.1638710184.A.723.html&#34;
+[4] &#34;https://www.ptt.cc/bbs/movie/M.1638710747.A.B9A.html&#34;
+[5] &#34;https://www.ptt.cc/bbs/movie/M.1638713288.A.28D.html&#34;
+[6] &#34;https://www.ptt.cc/bbs/movie/M.1638715229.A.F82.html&#34;
+```
+
+----
+
+```r=
+# Consider the time issue, let&#39;s crawl the first five url.
+for (i in 1:5){
+  url_vec &lt;- c(url_vec, crawlURL(urls[i]))
+}
+```
+
+----
+
+```r=
+library(rvest)
+# Write a function that would collect all the data you want only using the url as the parameter of the function
+# Locate the decorations hung on the Christmas tree you want to take 
+article_detail &lt;- function(url){
+    raw_html &lt;- read_html(url)
+    
+    # select the css path to locate the data
+    author_css &lt;- &#34;.article-metaline:nth-child(1) .article-meta-value&#34;
+    title_css &lt;- &#34;.article-metaline-right+ .article-metaline .article-meta-value&#34;
+    time_css &lt;- &#34;.article-metaline+ .article-metaline .article-meta-value&#34;
+    main_content_css &lt;- &#34;#main-content&#34;
+    #ip_css &lt;- &#34;.hl+ .f2&#34;
+    push_css &lt;- &#34;.push-tag&#34;
+    push_id_css &lt;- &#34;.push-userid&#34;
+    push_content_css &lt;- &#34;.push-content&#34;
+    push_time_css &lt;- &#34;.push-ipdatetime&#34;
+    
+    article_detail_info &lt;- list()
+    columns &lt;- c(author_css, title_css, time_css, main_content_css, push_css, push_id_css, push_content_css, push_time_css)
+    for (i in 1:length(columns)){
+        article_content &lt;- raw_html %&gt;%
+            html_nodes(css = columns[i]) %&gt;%
+            html_text()
+        article_detail_info[[i]] &lt;- article_content
+    }
+    
+    names(article_detail_info) &lt;- c(&#34;author&#34;, &#34;title&#34;, &#34;time&#34;, &#34;main_content&#34;, &#34;push&#34;, &#34;push_id&#34;, &#34;push_content&#34;, &#34;push_time&#34;)
+    
+    # data cleaning process
+    article_detail_info$main_content &lt;- article_detail_info$main_content %&gt;%
+        gsub(pattern = &#34;\n&#34;, ., replacement = &#34;&#34;) %&gt;% # 清理斷行符號
+        gsub(pattern = &#34;--.+&#34;, ., replacement = &#34;&#34;) %&gt;% # 去尾
+        gsub(pattern = &#34;作者.+:[0-9]{2}\\s[0-9]{4}&#34;, ., replacement = &#34;&#34;) # 去頭
+    #ip_start &lt;- regexpr(pattern = &#34;[0-9]+&#34;, article_detail_info$ip)
+    #ip_end &lt;- nchar(article_detail_info$ip)
+    #article_detail_info$ip &lt;- substr(article_detail_info$ip, start = ip_start, stop = ip_end)
+    #article_detail_info$ip &lt;- gsub(pattern = &#34;\n&#34;, article_detail_info$ip, replacement = &#34;&#34;) # 清理斷行符號
+    article_detail_info$push &lt;- gsub(pattern = &#34;\\s&#34;, article_detail_info$push, replacement = &#34;&#34;)
+    article_detail_info$push_id &lt;- gsub(pattern = &#34;\\s&#34;, article_detail_info$push_id, replacement = &#34;&#34;)
+    article_detail_info$push_content &lt;- article_detail_info$push_content %&gt;%
+        gsub(pattern = &#34;\\s&#34;, ., replacement = &#34;&#34;) %&gt;%
+        gsub(pattern = &#34;:&#34;, ., replacement = &#34;&#34;)
+    article_detail_info$push_time &lt;- article_detail_info$push_time %&gt;%
+        gsub(pattern = &#34;^\\s&#34;, ., replacement = &#34;&#34;) %&gt;%
+        gsub(pattern = &#34;\n&#34;, ., replacement = &#34;&#34;)
+    return(article_detail_info)
+}
+```
+
+----
+
+```r=
+# Put all the decoration you have collected into the basket.
+article_list = list()
+for (i in seq_along(url_vec[1:5])){
+  article_list[[i]] &lt;- article_detail(url_vec[i])
+}
+article_list[[1]]
+```
+```r=
+$author
+[1] &#34;killeryuan (龍鳥)&#34;
+ 
+$title
+[1] &#34;[好雷] 《永恆族》可惜不能是獨立電影&#34;
+
+$time
+[1] &#34;Sun Dec  5 20:28:07 2021&#34;
+
+$main_content
+[1] &#34;圖文好讀：https://vocus.cc/article/61a9d6f7fd89780001c9f5f7漫威電影宇宙甚麼都好，就可惜在每一部電影、每一個英雄都不能是獨立的，都必須為整體的主軸服務。這種趨勢在正式建立「宇宙」後被確立，在票房大獲成功後更成為「天條」，所以蜘蛛人必須成為鋼鐵人小弟，所以索爾和驚奇隊長必須離開地球，所以永恆族必須把三個故事塞在一集電影講完。~~~~~~~~~~~~~~~~~~~ 雷文 主文分隔線 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~沒錯，三個。首先是永恆族團隊在幾千年前來到地球，保護古代地球人與怪物戰鬥到近現代，這是第一個。數千年的戰鬥讓永恆族身心俱疲，地球人彼此戰爭的殘酷也讓部分成員對保護地球產生質疑，最後團隊四散，摸索著與地球人共存，這是第二個。最後則是永恆族的主宰天神族的真正計畫被揭露出來，包括永恆族的真正起源、怪物的真相、以及保護地球的真正意義，這導致團隊真正的內鬨、對彼此下殺手，但也在最後找到了「團結」的真諦，這是第三個。看看，這根本是把三集《美國隊長》搬在一起演：第一集是古代、第二集是團隊從內部瓦解，最後一集是彼此的內戰。從投入的場景預算、編劇對每個角色的描寫、動作場面的編排等各方面來看，製作方是很認真、很嚴肅的想把這電影「拍好」，幾乎每個永恆族都有自己專屬的故事線，也盡可能在有限的鏡頭和時間中詮釋出各自的性格特色。前後情節也都能做到互相呼應，至少不會像《蜘蛛人２：電光之戰》一樣幾條劇情線完全沒有交集。而永恆族的選角方面，上映前有不少人抱怨太過「政治正確」，選了許多非白人演員，或是讓角色成為聾啞人與同性戀等。撇開政治議題不談，這些演員其實都是老面孔，常常出沒在美劇或是電影中，演技是有保證的。至少不會像恐怖電影一樣黑人只負責死，又或是讓角色莫名其妙開始發表政確演講。但盡管電影長度已經相當長了（這又不是DC），但時間還是不夠。聾啞女英雄雖然能夠很自然地融入在每個場景中，但屬於她的故事基本沒有，觀眾無從瞭解她。黑人同性戀英雄似乎只是為了帶出「因為愛而重拾對人類的信心」的題材，但這似乎不是同性戀也可以吧？最倒楣就是女主角，因為劇情濃度太高，她必須是一個專門推動主線的角色，因此變成像是許多手遊主角一樣，幾乎毫無個人特色，只是為了推動劇情或是介紹設定而動作。明明台詞是最多的，但記憶點卻最少，就連能力都像是為了最後大戰而硬湊出來的。正因為能看得出來製作團隊對電影的認真對待，對於最終的成果只能說可惜，可惜最後只能交出一部普通偏上的漫威電影：有大場面、有香豔場景、有幽默笑料、帶出下一部電影的鋪陳，然後就沒了。不過，對於賦予它的期望和為了達成期望而付出的努力，還是必須給予肯定的，最終成果畢竟仍然是一部相當有娛樂性的動作大片。實在非戰之罪，任何一個三部曲給壓縮在一部電影裡面最多就只能這樣了。總分：3.5/5劇情：3/5角色：3/5動作：4/5特效：4/5&#34;
+
+$push
+[1] &#34;→&#34; &#34;→&#34; &#34;推&#34; &#34;→&#34; &#34;噓&#34; &#34;推&#34; &#34;→&#34;
+
+$push_id
+[1] &#34;StarLeauge&#34; &#34;will0620&#34;   &#34;AppleAlice&#34; &#34;AppleAlice&#34; &#34;butmyass&#34;  
+[6] &#34;odddriver&#34;  &#34;f126975955&#34;
+
+$push_content
+[1] &#34;目前來看他就是獨立電影，暫和MCU沒任何的連結&#34;     
+[2] &#34;可惜不能是影集&#34;                                  
+[3] &#34;很推這個觀點，我也覺得這部很好看，但要探討的議題&#34;
+[4] &#34;很多，濃度太高，變得很不好處理&#34;                  
+[5] &#34;儘管&#34;                                            
+[6] &#34;希望拍成影集&#34;                                    
+[7] &#34;他不是獨立電影啊片尾還是跟MCU連在一起了&#34;         
+
+$push_time
+[1] &#34;12/05 20:54&#34; &#34;12/05 21:09&#34; &#34;12/05 21:30&#34; &#34;12/05 21:30&#34; &#34;12/05 22:33&#34;
+[6] &#34;12/05 23:19&#34; &#34;12/06 12:25&#34;
+```
+
+---
+
+# 範例二
+# PCHome 爬蟲
+
+----
+
+先來簡單看看網站結構
+```r=
+pchome_test &lt;- readLines(&#34;http://ecshweb.pchome.com.tw/search/v3.3/?q=macbook%20pro&#34;); pchome_test
+```
+
+----
+
+# 你發現了什麼？
+
+----
+
+## 找不到資料
+* 這是因為文字不是存在html的標籤之中
+* 可使用擴充元件來驗證
+[Quick Javascript Switcher](https://chrome.google.com/webstore/detail/quick-javascript-switcher/geddoclleiomckbhadiaipdggiiccfje)
+
+----
+
+
+* 安裝好 Quick JavaScript Switcher 之後，點選圖示關閉 JavaScript
+* 頁面產品資訊消失了
+
+----
+
+![](https://github.com/yaojenkuo/r-crawler/raw/274a9c6e75e4fd580fd3c1c6ebb4ceb7e6a735d8//img/ch0903.png)
+
+----
+
+* 網站動態用 JavaScript 查詢後端資料庫
+* 所以打開 Chrome 開發者工具
+* 點選 Network 頁籤
+
+----
+
+![](https://github.com/yaojenkuo/r-crawler/raw/274a9c6e75e4fd580fd3c1c6ebb4ceb7e6a735d8//img/ch0904.png)
+
+----
+
+
+* 因為網頁已經讀取完畢，所以裡面沒有內容
+* 我們按重新整理
+
+----
+
+![](https://github.com/yaojenkuo/r-crawler/raw/274a9c6e75e4fd580fd3c1c6ebb4ceb7e6a735d8//img/ch0905.png)
+
+----
+
+
+* 網站動態利用 JavaScript 去後端資料庫查詢的例子，資料多半會在 XHR/JS 裡面
+* 我們點選 XHR 檢查
+* 點選 results?q=macbook%20pro&amp;page=1&amp;sort=rnk/dc
+
+----
+
+![](https://github.com/yaojenkuo/r-crawler/raw/274a9c6e75e4fd580fd3c1c6ebb4ceb7e6a735d8//img/ch0906.png)
+
+----
+
+
+* 點選右邊的 Preview 標籤就能夠看到商品資訊
+
+----
+
+![](https://github.com/yaojenkuo/r-crawler/raw/274a9c6e75e4fd580fd3c1c6ebb4ceb7e6a735d8//img/ch0907.png)
+
+----
+
+
+* 接著我們點選 Headers 標籤將 Request URL 複製貼上到瀏覽器
+* 我們大概就知道查詢後的商品資訊是以 JSON 格式在傳送
+
+----
+
+```r=
+library(jsonlite)
+url &lt;- &#34;http://ecshweb.pchome.com.tw/search/v3.3/all/results?q=macbook%20pro&amp;page=1&amp;sort=rnk/dc&#34;
+macbook_pro_query &lt;- fromJSON(url)
+```
+```r=
+$QTime
+[1] 82
+
+$totalRows
+[1] 11106
+
+$totalPage
+[1] 100
+
+$range
+$range$min
+[1] &#34;&#34;
+
+$range$max
+[1] &#34;&#34;
+
+
+$cateName
+[1] &#34;&#34;
+
+$q
+[1] &#34;macbook pro&#34;
+
+$subq
+[1] &#34;&#34;
+
+$token
+[1] &#34;macbook&#34; &#34;pro&#34;    
+
+$isMust
+[1] 1
+
+$prods
+```
+
+----
+
+```r=
+library(jsonlite)
+url &lt;- &#34;http://ecshweb.pchome.com.tw/search/v3.3/all/results?q=macbook%20pro&amp;page=1&amp;sort=rnk/dc&#34;
+macbook_pro_query &lt;- fromJSON(url)
+page_nums &lt;- 1:macbook_pro_query$totalPage
+
+urls &lt;- paste(&#34;http://ecshweb.pchome.com.tw/search/v3.3/all/results?q=macbook%20pro&amp;page=&#34;, page_nums, &#34;&amp;sort=rnk/dc&#34;, sep = &#34;&#34;)
+product_names &lt;- c()
+product_descriptions &lt;- c()
+product_prices &lt;- c()
+
+for (i in 1:5){
+    single_page_query &lt;- fromJSON(urls[i])
+    product_names &lt;- c(product_names, single_page_query$prods$name)
+    product_descriptions &lt;- c(product_descriptions, single_page_query$prods$describe)
+    product_prices &lt;- c(product_prices, single_page_query$prods$price)
+    Sys.sleep(sample(2:5, size = 1)) # why sleep
+}
+mbp_result_df &lt;- data.frame(product_names, product_descriptions, product_prices)
+head(mbp_result_df)
+```
+```r=
+                                                                         product_names
+ 1  MacBook Pro 13:Apple M1 chip 8-core CPU and 8-core GPU,256GB-Space Grey(MYD82TA/A)
+ 2            【Amachine】Type C3.1 極速PD 十合一 HUB for macbook / Surface / ipad pro
+ 3            【Amachine】TYPE C 3.1極速PD 11合1 HUB(for macbook / Surface / ipad pro)
+ 4        MacBook Pro 13 :Apple M1 chip 8-core CPU and 8-core GPU,512GB SSD-Space Grey
+ 5                  New MacBook Pro hub Type-C轉USB轉接器mac轉換頭 多功能充電集線器-T8
+ 6 MacBook Pro 13 :Apple M1 chip 8-core CPU and 8-core GPU,512GB SSD-Silver(MYDC2TA/A)
+                                                                                                
+```
+
+---
+
+Reference: [R 語言與網站爬蟲](https://github.com/yaojenkuo/r-crawler)
+</div>
+            </div>
+
+            <div id="meta" style="display: none;">{&#34;metaMigratedAt&#34;:&#34;2023-06-16T15:37:08.282Z&#34;,&#34;metaMigratedFrom&#34;:&#34;YAML&#34;,&#34;title&#34;:&#34;R crawler&#34;,&#34;breaks&#34;:&#34;true&#34;,&#34;slideOptions&#34;:&#34;{\&#34;theme\&#34;:\&#34;dark\&#34;,\&#34;spotlight\&#34;:{\&#34;enabled\&#34;:true},\&#34;transition\&#34;:\&#34;slide\&#34;}&#34;,&#34;contributors&#34;:&#34;[{\&#34;id\&#34;:\&#34;be042d37-8e4a-4b8c-b371-835cf33fe97b\&#34;,\&#34;add\&#34;:22442,\&#34;del\&#34;:1147}]&#34;}</div>
+
+            
+        </div>
+
+        
+         <script src="https://assets.hackmd.io/build/font-vendor.20350cc4e37635143259.js" defer="defer"></script><script src="https://assets.hackmd.io/build/common-vendor.f59a8489b8ce2d49b975.js" defer="defer"></script><script src="https://assets.hackmd.io/build/slide-vendor.860ac3abbcf53e23341c.js" defer="defer"></script><script src="https://assets.hackmd.io/build/slide-common.fb0162a2ceea4f101052.js" defer="defer"></script><script src="https://assets.hackmd.io/build/slide.bf33395fd9a69cf2903d.js" defer="defer"></script>
+    </body>
+</html>
+
+
