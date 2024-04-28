@@ -4,7 +4,7 @@
 <!-- https://shields.io/ -->
 #### 爬蟲
 * [Python 爬蟲入門](https://milanochuang.github.io/slides/crawler/python_crawler)
-* [Python 爬蟲進階: Scrapy](https://milanochuang.github.io/slides/crawler/python_crawler)
+* [Python 爬蟲進階: Scrapy](https://milanochuang.github.io/slides/crawler/scrapy)
 * [R 爬蟲](https://milanochuang.github.io/slides/crawler/r_crawler)
 
 #### 網頁相關
