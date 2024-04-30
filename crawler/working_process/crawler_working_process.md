@@ -11,11 +11,12 @@ paginate: true
 
 ---
 
-# ¦³¤@¤Ñ...
+# æœ‰ä¸€å¤©...
 
 ---
 
 <!-- _paginate: false -->
+
 ![bg](../images/teacher_says_1.png)
 
 ---
@@ -25,12 +26,13 @@ paginate: true
 
 ---
 
-:bulb: ´M§ä¦bºô­¶¤Wªº¦ì¸m¯Ó®É
-:bulb: ÃB¥~±N§ì¤Uªº¸ê®Æµ²ºc¤Æ
+:bulb: å°‹æ‰¾åœ¨ç¶²é ä¸Šçš„ä½ç½®è€—æ™‚
+:bulb: é¡å¤–å°‡æŠ“ä¸‹çš„è³‡æ–™çµæ§‹åŒ–
 
 ---
 
 <!-- _paginate: false -->
+
 ![bg](../images/teacher_says_2.png)
 
 ---
@@ -49,5 +51,4 @@ paginate: true
 
 ---
 
-# §ä¤£¨ì«ç»ò¿ì¡H
-
+# æ‰¾ä¸åˆ°æ€éº¼è¾¦ï¼Ÿ
