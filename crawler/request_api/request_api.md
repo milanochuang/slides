@@ -9,7 +9,7 @@ paginate: true
 
 <!-- _paginate: false -->
 
-# Crawling with API
+# Request API
 
 ---
 
@@ -56,6 +56,9 @@ paginate: true
 ![width:500px](https://camo.githubusercontent.com/01ee3fd490427e64eb4aea990bc7dadfab24b8d8ed88f1856c073f5485f708b7/68747470733a2f2f756e646f2e696f2f6d656469612f75706c6f6164732f66696c65732f467275737472617465645f70726f6772616d6d65722e6769663f7261773d74727565)
 
 ---
+
+### [LINE 事實查核中心](https://fact-checker.line.me/)
+<break>
 
 ![width:1000px](https://i.imgur.com/z0HVmWn.png)
 
@@ -106,6 +109,9 @@ print(response.json())
 
 ---
 
+#### [台鐵列車時刻表](https://www.railway.gov.tw/tra-tip-web/tip/tip001/tip112/gobytime)
+<break>
+
 ![width:1000px](https://i.imgur.com/XkbqdhJ.png)
 
 ---
@@ -135,6 +141,7 @@ print(response.text)
 
 ---
 
-## 小試身手
+### 小試身手
+[](https://www.thsrc.com.tw/ArticleContent/a3b630bb-1066-4352-a1ef-58c7b4e8ef7c)
 
 ![width:700px](../images/teacher_says_4.png)
