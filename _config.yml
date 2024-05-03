@@ -12,5 +12,12 @@ include:
   - CONTRIBUTING.md
   - ISSUE_TEMPLATE.md
   - PULL_REQUEST_TEMPLATE.md
+execute:
+  execute_notebooks: force
+  stderr_output: remove
+  exclude_patterns:
+    - 'homework1'
+    - 'homework2'
+    - 'homework3'
 
 theme: jekyll-theme-minimal
