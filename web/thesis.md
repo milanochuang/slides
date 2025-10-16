@@ -6,9 +6,10 @@ html: true
 
 <!-- _class: lead -->
 
-<!-- 封面投影片（_class: lead 讓它整頁置中、無頁碼） -->
+<!-- Good afternoon everyone. Today, I will present my research, Political Comment Opinion Analysis and Applications of Large Language Models: A Case Study of Social Media Comments on Taiwan’s 2024 Presidential Election.
+This study focuses on how we can use large language models, or LLMs, to understand public opinion in online political discussions — specifically, how people evaluate political parties on PTT, one of Taiwan’s most influential online forums. -->
 
-### Political Comment Opinion Analysis and Applications of Large Language Models: A Case Study of Social Media Comments on Taiwan’s 2024 Presidential Election
+### Political Comment Opinion Analysis and Applications of Large Language Models: A Case Study of Social Media Comments on Taiwan's 2024 Presidential Election
 
 <div style="position: absolute; bottom: 30px; left: 100px; font-size: 0.8em; text-align: left;">
 
@@ -25,6 +26,13 @@ Linguistic Institute, NCCU  
 ---
 
 <!--_paginate: true-->
+<!-- Let’s start with a quick background.
+PTT has become a central space for political evaluation and opinion expression in Taiwan. However, most existing automatic analysis only focuses on polarity — simply labeling texts as positive or negative.
+This approach overlooks the different dimensions embedded in them. Therefore, this study uses Judgement, a category from the Appraisal framework, which looks at how people evaluate morality, competence, integrity, and values, to see how commenter evaluate political party.
+
+The goal of this study is to apply the Appraisal framework to automatically detect Judgement in political comments and to examine how different parties were evaluated during the 2024 presidential election.
+The contribution is twofold: build a system that combines manual annotation and LLM-based classification, and use it to provide a fine-grained analysis of political discourse. -->
+
 ### Research background & motivation
 
 <div style="font-size: 30px; line-height: 1.6; text-align: left; max-width: 100%;">
@@ -37,6 +45,9 @@ Linguistic Institute, NCCU  
 
 ---
 
+<!-- Here’s a brief overview of the methodology.
+Our data comes from 14,018 comments collected from the PTT Gossiping board. Each comment was manually annotated for polarity and Judgement subcategories.
+Then used GPT-based classification to automate this process and developed a visualization system to explore evaluative patterns in the results. -->
 ## Methodology
 
 <div style="font-size: 30px; line-height: 1.6; text-align: left; max-width: 100%;">
@@ -53,6 +64,13 @@ Linguistic Institute, NCCU  
 
 ---
 
+<!-- Moving on to the results.
+Across all parties, negative Judgement dominates the online discourse.
+	•	For the DPP, the most frequent criticism was in the propriety category — meaning people questioned its morality and integrity.
+	•	For the KMT, criticism focused on capacity, referring to perceived incompetence or organizational weakness.
+	•	For the TPP, the data size was smaller, but comments were still mostly negative.
+
+This suggests that negative evaluations are a central feature of Taiwan’s political discussions online, but the focus of criticism differs between parties. -->
 <!--_paginate: true-->
 #### Evaluative *Judgement* Frequency
 <br>
@@ -89,6 +107,11 @@ Linguistic Institute, NCCU  
 
 ---
 <!--_paginate: true-->
+<!-- Statistical analysis with Fisher’s exact test confirms these patterns.
+	•	The KMT was 14 times more likely to receive negative evaluations in capacity compared to the DPP.
+	•	Conversely, the DPP was seven times more likely to be criticized for propriety.
+
+These differences are statistically significant, meaning they reflect real patterns in public opinion rather than random variation. -->
 #### Fisher's Test: *Judgement* subcategories
 
 <div style="transform: scale(1);">
@@ -130,6 +153,10 @@ Linguistic Institute, NCCU  
 
 ---
 <!--_paginate: true-->
+<!-- When we factor in polarity, the trend becomes even clearer:
+	•	Negative propriety judgments were strongly associated with the DPP.
+	•	Negative capacity judgments were strongly associated with the KMT.
+This confirms that the online discourse is not just broadly negative — it’s strategically targeted at each party’s perceived weaknesses. -->
 #### Fisher's Test: Subcategories with Polarity
 
 <div style="transform: scale(1);">
@@ -159,6 +186,12 @@ Linguistic Institute, NCCU  
 
 ---
 <!--_paginate: true-->
+<!-- Now let’s look at the model performance.
+Using GPT for classification, we compared zero-shot and few-shot prompting.
+	•	With zero-shot prompting, the macro F1 score was around 0.62.
+	•	With few-shot prompting — where we provide example annotations — performance improved significantly to 0.85.
+
+This shows that giving the model a few labeled examples helps it better capture subtle evaluative meanings. -->
 ## Classification Report
 
 <div style="transform: scale(0.85); transform-origin: top left; width: 120%;">
@@ -223,6 +256,9 @@ Linguistic Institute, NCCU  
 
 ---
 <!--_paginate: true-->
+<!-- We also conducted a McNemar test to measure whether the improvement was statistically significant.
+The results — χ² = 16.68, p < 0.001 — confirm that few-shot prompting significantly outperforms zero-shot prompting.
+This suggests that example-based learning is crucial for tasks involving complex evaluative language like Judgement classification. -->
 ## McNemar test
 <div style="transform: scale(0.85); transform-origin: top left; width: 120%;">
 
@@ -262,13 +298,21 @@ Linguistic Institute, NCCU  
 
 ---
 <!--_paginate: true-->
+<!-- To summarize the main findings:
+	1.	Negative evaluations dominate PTT political discourse.
+	2.	The DPP is primarily criticized for propriety (morality), while the KMT faces criticism for capacity (competence).
+	3.	These patterns are statistically significant and reflect deeper narratives about each party.
+	4.	Few-shot prompting greatly improves classification accuracy.
+	5.	Automated Judgement detection offers valuable insights for analyzing political language at scale.
+
+These results set the stage for the system design and discussion section, where we explore how visualization tools and case studies can reveal the real-world implications of these findings. -->
 ## Summary
 
 <div style="font-size: 26px; line-height: 1.6; text-align: left; max-width: 100%;">
 
-- **Negative sentiment dominates**: DPP mostly for _propriety_; KMT for _capacity_.  
+- **Mostly Negative comment**: neg. _propriety_ (DPP); neg. _capacity_ (KMT)
 - **Statistical focus**: _propriety_ (DPP) & _capacity_ (KMT)  shows significance.  
-- **Model boost**: Few-shot outperforms zero-shot (F1 ↑ ~0.2).  
+- **Model improvement**: Few-shot outperforms zero-shot (F1 ↑ ~0.2).  
 - **Significant improvement**: McNemar χ² = 16.68, p < 0.001 confirms performance improvement.  
 - **Analytical value**: Results validate automated judgment detection.  
 
@@ -284,7 +328,7 @@ Linguistic Institute, NCCU  
 # **System Design & Discussion**
 
 ---
-
+<!-- If we choose negative evaluation of propriety in DPP, We can see from in the election year, there's a spike approximately between May and August. -->
 ##### DPP: negative evaluation of _propriety_
 
 <iframe
@@ -296,7 +340,22 @@ Linguistic Institute, NCCU  
 ></iframe>
 
 ---
+
+<!-- If we look closely at how people express evaluation of propriety through word cloud, we can found that alongside 獨裁 ‘dictatorship’, many gender-related terms appear—such as 性騷擾 ‘sex-
+ual harassment’, 外遇 ‘affair’, 強姦 ‘rape’, and 性侵犯 ‘sexual assault’. -->
+<iframe
+  src="https://publicopiniondashboard-milanochuang.streamlit.app/?section=wordcloud&embedded=true&scale=1"
+  width="1200"
+  height="800"
+  style="border:0;max-width:100%;aspect-ratio:16/9;"
+  loading="lazy">
+</iframe>
+
+---
 <!--_paginate: true-->
+<!-- If tracing back to the news during that period, we can found that evaluations focus on the #MeToo movement in 2023.
+As survivors came forward in late May and June, the DPP — a party that prides itself on progressive values — faced intense scrutiny for its handling of sexual harassment cases.
+Public criticism concentrated on propriety, accusing the party of hypocrisy, authoritarianism, and moral failure. -->
 <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
 
 <div style="font-size: 30px; line-height: 1.6; text-align: center; max-width: 100%;">
@@ -312,16 +371,9 @@ Linguistic Institute, NCCU  
 
 ---
 
-<iframe
-  src="https://publicopiniondashboard-milanochuang.streamlit.app/?section=wordcloud&embedded=true&scale=1"
-  width="1200"
-  height="800"
-  style="border:0;max-width:100%;aspect-ratio:16/9;"
-  loading="lazy">
-</iframe>
-
----
 <!--_paginate: true-->
+
+<!-- Such breaches of moral expectations are particularly damaging because they undermine a party’s legitimacy — Sikorski and Walter's research also confirms that moral scandals may cut voter support more. -->
 ### Observation and Analysis
 
 <div style="font-size: 30px; line-height: 1.6; text-align: center; max-width: 100%;">
@@ -334,6 +386,7 @@ Linguistic Institute, NCCU  
 </div>
 
 ---
+<!-- Next, if we choose negative capacity in KMT, we can see from in the election year, there's a spike approximately between April and May. -->
 
 ##### KMT: negative evaluation of _capacity_
 
@@ -346,7 +399,21 @@ Linguistic Institute, NCCU  
 ></iframe>
 
 ---
+
+<!-- If we look closely at how people express evaluation of propriety through word cloud, it highlights evaluative expressions such as 內鬥, 智障, and 不團結, which dominated online comments during
+this period.  -->
+<iframe
+  src="https://publicopiniondashboard-milanochuang.streamlit.app/?section=wordcloud&embedded=true&scale=1"
+  width="1200"
+  height="800"
+  style="border:0;max-width:100%;aspect-ratio:16/9;"
+  loading="lazy">
+</iframe>
+
+---
 <!--_paginate: true-->
+<!-- A second case study looks at the KMT’s delayed nomination process.
+Criticism spiked in April as the party struggled to decide on a presidential candidate. -->
 <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
 
 <div style="font-size: 30px; line-height: 1.6; text-align: center; max-width: 100%;">
@@ -362,23 +429,16 @@ Linguistic Institute, NCCU  
 
 ---
 
-<iframe
-  src="https://publicopiniondashboard-milanochuang.streamlit.app/?section=wordcloud&embedded=true&scale=1"
-  width="1200"
-  height="800"
-  style="border:0;max-width:100%;aspect-ratio:16/9;"
-  loading="lazy">
-</iframe>
-
----
 <!--_paginate: true-->
+<!--The frequent mention of 內鬥 reflects widespread frustration with the KMT’s inability to present a unified front during the critical phase of candidate selection. These expression of indecision and infight was widely interpreted as a sign of poor leadership and weak organizational capacity.
+Critiques of capacity extend beyond party politics — they lead voters to question a party’s ability to govern effectively. Research also suggests that intra-party conflict before election may erode confidence and weaken the election performance -->
 ### Observation and Analysis
 
 <div style="font-size: 30px; line-height: 1.6; text-align: center; max-width: 100%;">
 
 - **From party to governance:** Voters extrapolated nomination indecision to doubts about the KMT's ability to govern effectively.
-- **Legitimacy impact:** _capacity_ criticisms undermine public trust in a party’s readiness for office. 
-- **Research alignment:** Intra-party conflict before elections erodes confidence and weakens performance (Klingelhöfer & Müller, 2024).
+- **Legitimacy impact:** _capacity_ criticisms undermine public trust in a party's readiness for office. 
+- **Research alignment:** Intra-party conflict before elections erodes confidence and weakens the performance of election (Klingelhöfer & Müller, 2024).
 
 </div>
 
@@ -388,6 +448,9 @@ Linguistic Institute, NCCU  
 
 ---
 
+<!-- Zero-shot models often confuse similar subcategories — for example, interpreting tenacity as capacity or normality as propriety.
+With few-shot prompting, the model learns semantic cues that help it make finer distinctions.
+As a result, tenacity is correctly identified in 14 out of 16 cases, and normality in 3 out of 4, showing that targeted examples can significantly improve classification. -->
 ### Few-shot Improves Classification
 
 <div style="font-size: 30px; line-height: 1.6; text-align: center; max-width: 100%;">
@@ -400,6 +463,9 @@ Linguistic Institute, NCCU  
 
 ---
 <!--_paginate: true-->
+<!-- Even with few-shot prompting, some misclassifications remain.
+The most common errors are confusing propriety with capacity — 10 out of 15 times — and capacity with normality — 6 out of 14 times.
+These cases show that boundaries between evaluative meanings are still hard for the model to capture precisely.-->
 ### Few-shot: Error Analysis
 
 <div style="font-size: 30px; line-height: 1.6; text-align: center; max-width: 100%;">
@@ -413,6 +479,10 @@ Linguistic Institute, NCCU  
 
 ---
 <!--_paginate: true-->
+<!-- Here, the model often mistakes moral judgments for evaluations of ability.
+For example: “The DPP’s state apparatus is truly disgusting.”
+The gold label is propriety, because it criticizes the unethical use of state power. But the model predicts capacity, interpreting it as a comment on competence.
+This reflects how political language can blur the line between morality and performance, making classification challenging. -->
 #### Error Type 1: *PROPRIETY* → *CAPACITY*
 
 <div style="font-size: 30px; line-height: 1.6; text-align: left; max-width: 100%;">
@@ -432,6 +502,10 @@ Predicted: *capacity* (misread as competence)
 
 ---
 <!--_paginate: true-->
+<!-- Another recurring error is reading competence evaluations as norm deviations.
+For example: “The KMT is in utter chaos internally.”
+The gold label is capacity, since the comment targets the party’s lack of organizational control.
+However, the model labels it normality, focusing instead on the idea of deviation from order. This shows how overlapping meanings in political discourse can still lead to confusion. -->
 #### Error Type 2: *CAPACITY* → *NORMALITY*
 
 <div style="font-size: 30px; line-height: 1.6; text-align: left; max-width: 100%;">
