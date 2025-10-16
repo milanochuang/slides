@@ -68,9 +68,9 @@ Then used GPT-based classification to automate this process and developed a visu
 Across all parties, negative Judgement dominates the online discourse.
 	•	For the DPP, the most frequent criticism was in the propriety category — meaning people questioned its morality and integrity.
 	•	For the KMT, criticism focused on capacity, referring to perceived incompetence or organizational weakness.
-	•	For the TPP, the data size was smaller, but comments were still mostly negative.
+	•	For the TPP, the data size was smaller, which may due to the fact that TPP is relatively new, so people tend to evaluate its principal rather than the party. Their comments were still mostly negative.
 
-This suggests that negative evaluations are a central feature of Taiwan’s political discussions online, but the focus of criticism differs between parties. -->
+This suggests that negative evaluations are a central feature of Taiwan’s political evaluation online, but the focus of criticism differs between parties. -->
 <!--_paginate: true-->
 #### Evaluative *Judgement* Frequency
 <br>
@@ -110,8 +110,7 @@ This suggests that negative evaluations are a central feature of Taiwan’s poli
 <!-- Statistical analysis with Fisher’s exact test confirms these patterns.
 	•	The KMT was 14 times more likely to receive negative evaluations in capacity compared to the DPP.
 	•	Conversely, the DPP was seven times more likely to be criticized for propriety.
-
-These differences are statistically significant, meaning they reflect real patterns in public opinion rather than random variation. -->
+ -->
 #### Fisher's Test: *Judgement* subcategories
 
 <div style="transform: scale(1);">
@@ -153,10 +152,9 @@ These differences are statistically significant, meaning they reflect real patte
 
 ---
 <!--_paginate: true-->
-<!-- When we factor in polarity, the trend becomes even clearer:
+<!-- Afterwards, another fisher's test was applied adding polarity as the new variable to see what polarity of the evaluation in kmt and dpp is significant. It shows that:
 	•	Negative propriety judgments were strongly associated with the DPP.
-	•	Negative capacity judgments were strongly associated with the KMT.
-This confirms that the online discourse is not just broadly negative — it’s strategically targeted at each party’s perceived weaknesses. -->
+	•	Negative capacity judgments were strongly associated with the KMT. -->
 #### Fisher's Test: Subcategories with Polarity
 
 <div style="transform: scale(1);">
@@ -186,8 +184,7 @@ This confirms that the online discourse is not just broadly negative — it’s 
 
 ---
 <!--_paginate: true-->
-<!-- Now let’s look at the model performance.
-Using GPT for classification, we compared zero-shot and few-shot prompting.
+<!-- Now let’s look at the model performance, we compared zero-shot and few-shot prompting.
 	•	With zero-shot prompting, the macro F1 score was around 0.62.
 	•	With few-shot prompting — where we provide example annotations — performance improved significantly to 0.85.
 
@@ -199,8 +196,8 @@ This shows that giving the model a few labeled examples helps it better capture 
 <table style="width: 100%; border-collapse: collapse; text-align: center; font-size: 28px;">
   <thead>
     <tr style="background-color: #44A6D4; color: white;">
-      <th style="padding: 10px; min-width: 200px;">JUDGEMENT Category</th>
-      <th style="padding: 10px; min-width: 160px;">Prompting Type</th>
+      <th style="padding: 10px; min-width: 200px;"></th>
+      <th style="padding: 10px; min-width: 160px;">Prompt setting</th>
       <th style="padding: 10px; min-width: 100px;">Precision</th>
       <th style="padding: 10px; min-width: 100px;">Recall</th>
       <th style="padding: 10px; min-width: 100px;">F1 Score</th>
@@ -221,34 +218,6 @@ This shows that giving the model a few labeled examples helps it better capture 
       <td>0.86</td>
       <td><strong>0.85</strong></td>
     </tr>
-    <tr>
-      <td><i>tenacity</i></td>
-      <td>Zero-shot</td>
-      <td>0.55</td>
-      <td>0.50</td>
-      <td>0.52</td>
-    </tr>
-    <tr>
-      <td><i>tenacity</i></td>
-      <td>Few-shot</td>
-      <td>0.78</td>
-      <td>0.82</td>
-      <td>0.80</td>
-    </tr>
-    <tr>
-      <td><i>normality</i></td>
-      <td>Zero-shot</td>
-      <td>0.58</td>
-      <td>0.60</td>
-      <td>0.59</td>
-    </tr>
-    <tr>
-      <td><i>normality</i></td>
-      <td>Few-shot</td>
-      <td>0.81</td>
-      <td>0.83</td>
-      <td>0.82</td>
-    </tr>
   </tbody>
 </table>
 
@@ -259,7 +228,7 @@ This shows that giving the model a few labeled examples helps it better capture 
 <!-- We also conducted a McNemar test to measure whether the improvement was statistically significant.
 The results — χ² = 16.68, p < 0.001 — confirm that few-shot prompting significantly outperforms zero-shot prompting.
 This suggests that example-based learning is crucial for tasks involving complex evaluative language like Judgement classification. -->
-## McNemar test
+<!-- ## McNemar test
 <div style="transform: scale(0.85); transform-origin: top left; width: 120%;">
 
 <table style="width: 70%; text-align: center; font-size: 27px; border-collapse: collapse; margin: auto;">
@@ -296,7 +265,7 @@ This suggests that example-based learning is crucial for tasks involving complex
 
 </div>
 
----
+--- -->
 <!--_paginate: true-->
 <!-- To summarize the main findings:
 	1.	Negative evaluations dominate PTT political discourse.
@@ -386,7 +355,7 @@ Public criticism concentrated on propriety, accusing the party of hypocrisy, aut
 </div>
 
 ---
-<!-- Next, if we choose negative capacity in KMT, we can see from in the election year, there's a spike approximately between April and May. -->
+<!-- Next, if we choose negative capacity in KMT, we can see from in the election year, there's a spike approximately between March and May. -->
 
 ##### KMT: negative evaluation of _capacity_
 
@@ -400,7 +369,7 @@ Public criticism concentrated on propriety, accusing the party of hypocrisy, aut
 
 ---
 
-<!-- If we look closely at how people express evaluation of propriety through word cloud, it highlights evaluative expressions such as 內鬥, 智障, and 不團結, which dominated online comments during
+<!-- (March and May) If we look closely at how people express evaluation of propriety through word cloud, it highlights evaluative expressions such as 內鬥, 智障, and 不團結, which dominated online comments during
 this period.  -->
 <iframe
   src="https://publicopiniondashboard-milanochuang.streamlit.app/?section=wordcloud&embedded=true&scale=1"
@@ -412,8 +381,8 @@ this period.  -->
 
 ---
 <!--_paginate: true-->
-<!-- A second case study looks at the KMT’s delayed nomination process.
-Criticism spiked in April as the party struggled to decide on a presidential candidate. -->
+<!--If tracing back to the news during that period, a second case study looks at the KMT’s delayed nomination process.
+Criticism spiked in April as the party struggled to decide on a presidential candidate, suggesting deficacy in organizational ability. -->
 <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
 
 <div style="font-size: 30px; line-height: 1.6; text-align: center; max-width: 100%;">
@@ -465,7 +434,7 @@ As a result, tenacity is correctly identified in 14 out of 16 cases, and normali
 <!--_paginate: true-->
 <!-- Even with few-shot prompting, some misclassifications remain.
 The most common errors are confusing propriety with capacity — 10 out of 15 times — and capacity with normality — 6 out of 14 times.
-These cases show that boundaries between evaluative meanings are still hard for the model to capture precisely.-->
+These cases show that evaluative meanings are still hard for the model to capture precisely.-->
 ### Few-shot: Error Analysis
 
 <div style="font-size: 30px; line-height: 1.6; text-align: center; max-width: 100%;">
@@ -518,5 +487,26 @@ Predicted: *capacity* (abnormality)
 &emsp;&emsp;**"The KMT is in utter chaos internally."**
 - Issue: Model interprets the phrase as norm deviation rather than inability to manage internal affairs.  
 - Insight: More domain-tailored examples could clarify the boundary.
+
+</div>
+
+---
+<!-- Let’s wrap up with the core insights from this study.  
+First, we found that citizens evaluate political actors through two main lenses: capacity to govern and legitimacy to govern.  
+Online comments aren’t just noise—they reflect deeper public perceptions and help shape party images.  
+Our annotation work revealed consistent patterns in how these judgments are expressed linguistically.  
+On the technical side, few-shot prompting improved classification accuracy, but context still matters.  
+To move forward, models need richer political domain knowledge to better interpret evaluative language.  
+Ultimately, these expressions in online discourse play a powerful role in shaping democratic debate. -->
+
+
+<div style="font-size: 30px; line-height: 1.6; text-align: left; max-width: 100%;">
+
+### Conclusion
+• Citizens evaluate parties via capacity and propriety
+• Online comments reflect deeper political perceptions
+• Annotation reveals clear judgment patterns
+• Few-shot prompting improves classification, but context matters
+• Future models need political domain knowledge
 
 </div>
