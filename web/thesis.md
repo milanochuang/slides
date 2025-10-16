@@ -285,11 +285,7 @@ Linguistic Institute, NCCU  
 
 ---
 
-<div style="font-size: 24px; line-height: 1.6; text-align: center; max-width: 100%;">
-
-# DPP: negative evaluation of _propriety_
-
-</div>
+##### DPP: negative evaluation of _propriety_
 
 <iframe
 	src="https://publicopiniondashboard-milanochuang.streamlit.app/?section=trend_line&embedded=true&scale=1&scroll=220"
@@ -339,11 +335,8 @@ Linguistic Institute, NCCU  
 
 ---
 
-<div style="font-size: 24px; line-height: 1.6; text-align: center; max-width: 100%;">
+##### KMT: negative evaluation of _capacity_
 
-# KMT: negative evaluation of _capacity_
-
-</div>
 <iframe
 	src="https://publicopiniondashboard-milanochuang.streamlit.app/?section=trend_line&embedded=true&scale=1&scroll=220"
 	width="1200"
