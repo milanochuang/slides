@@ -6,9 +6,7 @@ html: true
 
 <!-- _class: lead -->
 
-<!-- «Ê­±§ë¼v¤ù¡]_class: lead Åý¥¦¾ã­¶¸m¤¤¡BµL­¶½X¡^ -->
-
-### Political Comment Opinion Analysis and Applications of Large Language Models: A Case Study of Social Media Comments on Taiwan¡¦s 2024 Presidential Election
+### Political Comment Opinion Analysis and Applications of Large Language Models: A Case Study of Social Media Comments on Taiwanï¿½ï¿½s 2024 Presidential Election
 
 <div style="position: absolute; bottom: 30px; left: 100px; font-size: 0.8em; text-align: left;">
 
@@ -103,13 +101,13 @@ Linguistic Institute, NCCU ?
   <tr>
     <td>KMT vs DPP</td>
     <td><i>capacity</i></td>
-    <td>14¡Ñ</td>
+    <td>14ï¿½ï¿½</td>
     <td>Significant</td>
   </tr>
   <tr>
     <td>KMT vs DPP</td>
     <td><i>propriety</i></td>
-    <td>1/7¡Ñ (DPP higher)</td>
+    <td>1/7ï¿½ï¿½ (DPP higher)</td>
     <td>Significant</td>
   </tr>
   <tr>
@@ -246,13 +244,13 @@ Linguistic Institute, NCCU ?
       <td style="padding: 10px;">25</td>
     </tr>
     <tr>
-      <td style="padding: 10px;"><em>McNemar £q?</em></td>
-      <td style="padding: 10px;">¡V</td>
+      <td style="padding: 10px;"><em>McNemar ï¿½q?</em></td>
+      <td style="padding: 10px;">ï¿½V</td>
       <td style="padding: 10px;">16.68</td>
     </tr>
     <tr>
       <td style="padding: 10px;"><em>McNemar p-value</em></td>
-      <td style="padding: 10px;">¡V</td>
+      <td style="padding: 10px;">ï¿½V</td>
       <td style="padding: 10px;">0.00044</td>
     </tr>
   </tbody>
@@ -268,8 +266,8 @@ Linguistic Institute, NCCU ?
 
 - **Negative sentiment dominates**: DPP mostly for _propriety_; KMT for _capacity_.  
 - **Statistical focus**: _propriety_ (DPP) & _capacity_ (KMT)  shows significance.  
-- **Model boost**: Few-shot outperforms zero-shot (F1 ¡ô ~0.2).  
-- **Significant improvement**: McNemar £q? = 16.68, p < 0.001 confirms performance improvement.  
+- **Model boost**: Few-shot outperforms zero-shot (F1 ï¿½ï¿½ ~0.2).  
+- **Significant improvement**: McNemar ï¿½q? = 16.68, p < 0.001 confirms performance improvement.  
 - **Analytical value**: Results validate automated judgment detection.  
 
 <br>
@@ -394,7 +392,7 @@ Linguistic Institute, NCCU ?
 <div style="font-size: 30px; line-height: 1.6; text-align: center; max-width: 100%;">
 
 - **From party to governance:** Voters extrapolated nomination indecision to doubts about the KMT's ability to govern effectively.
-- **Legitimacy impact:** _capacity_ criticisms undermine public trust in a party¡¦s readiness for office. 
+- **Legitimacy impact:** _capacity_ criticisms undermine public trust in a partyï¿½ï¿½s readiness for office. 
 - **Research alignment:** Intra-party conflict before elections erodes confidence and weakens performance (Klingelh?fer & M?ller, 2024).
 
 </div>
@@ -409,7 +407,7 @@ Linguistic Institute, NCCU ?
 
 <div style="font-size: 30px; line-height: 1.6; text-align: center; max-width: 100%;">
 
-- Zero-shot models often confuse subcategories (*tenacity* ¡÷ *capacity*, *normality* ¡÷ *propriety*). 
+- Zero-shot models often confuse subcategories (*tenacity* ï¿½ï¿½ *capacity*, *normality* ï¿½ï¿½ *propriety*). 
 - Few-shot prompting provides semantic cues, significantly improving classification accuracy.
 - Results: _tenacity_ corrected in **14/16** cases, _normality_ corrected in **3/4** cases.
 
@@ -423,14 +421,14 @@ Linguistic Institute, NCCU ?
 
 - Even with few-shot prompting, some misclassifications remain frequent. ?
 - Two major error types: ?
-	- *propriety* ¡÷ *capacity* (10/15 cases) ?
-	- *capacity* ¡÷ *normality* (6/14 cases)
+	- *propriety* ï¿½ï¿½ *capacity* (10/15 cases) ?
+	- *capacity* ï¿½ï¿½ *normality* (6/14 cases)
 
 </div>
 
 ---
 <!--_paginate: true-->
-#### Error Type 1: *PROPRIETY* ¡÷ *CAPACITY*
+#### Error Type 1: *PROPRIETY* ï¿½ï¿½ *CAPACITY*
 
 <div style="font-size: 30px; line-height: 1.6; text-align: left; max-width: 100%;">
 
@@ -438,8 +436,8 @@ Linguistic Institute, NCCU ?
 Gold: *propriety* (moral judgment) ?
 Predicted: *capacity* (misread as competence)
 
-(12) **¥Á¶iÄÒªº°ê®a¾÷¾¹¯u¦³°÷äúÄê**
-&emsp;&emsp;**"The DPP¡¦s state apparatus is truly disgusting."**
+(12) **ï¿½ï¿½ï¿½iï¿½Òªï¿½ï¿½ï¿½aï¿½ï¿½ï¿½ï¿½ï¿½uï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½**
+&emsp;&emsp;**"The DPPï¿½ï¿½s state apparatus is truly disgusting."**
 - Issue: Model reads "state apparatus" as an incompetent actor rather than a morally illegitimate practice. ?
 - Insight: Domain-specific prompts could help emphasize how political context shifts evaluative meaning.
 
@@ -449,7 +447,7 @@ Predicted: *capacity* (misread as competence)
 
 ---
 <!--_paginate: true-->
-#### Error Type 2: *CAPACITY* ¡÷ *NORMALITY*
+#### Error Type 2: *CAPACITY* ï¿½ï¿½ *NORMALITY*
 
 <div style="font-size: 30px; line-height: 1.6; text-align: left; max-width: 100%;">
 
@@ -457,7 +455,7 @@ Predicted: *capacity* (misread as competence)
 Gold: *capacity* (competence) ?
 Predicted: *capacity* (abnormality)
 
-(13) **°ê¥ÁÄÒ¤º³¡¤@¤ù²V¶Ã**
+(13) **ï¿½ï¿½ï¿½ï¿½Ò¤ï¿½ï¿½ï¿½ï¿½@ï¿½ï¿½ï¿½Vï¿½ï¿½**
 &emsp;&emsp;**"The KMT is in utter chaos internally."**
 - Issue: Model interprets the phrase as norm deviation rather than inability to manage internal affairs. ?
 - Insight: More domain-tailored examples could clarify the boundary.
