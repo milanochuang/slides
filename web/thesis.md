@@ -445,6 +445,7 @@ Predicted: *capacity* (abnormality)
 </div>
 
 ---
+<!--_paginate: true-->
 <!-- Let’s wrap up with the core insights from this study.  
 First, we found that citizens evaluate political actors through two main lenses: capacity to govern and legitimacy to govern.  
 Online comments aren’t just noise—they reflect deeper public perceptions and help shape party images.  
@@ -467,4 +468,4 @@ Ultimately, these expressions in online discourse play a powerful role in shapin
 
 ---
 
-# **Thank you!**
+# **Thank you!**g
