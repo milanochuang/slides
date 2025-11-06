@@ -172,10 +172,10 @@ Then, I tested GPT with zero‑shot and few‑shot prompts, and built a visualiz
 
 - **Data:** PTT Gossiping board
 - **Manual annotation**:
-  * Target entity (metonymy identification)
-  * Inscribed <span style="font-variant:small-caps;">judgement</span>
-  * Polarity
-  * Evaluative expression (text span)
+  - Target entity (metonymy identification)
+  - Inscribed <span style="font-variant:small-caps;">judgement</span>
+  - Polarity
+  - Evaluative expression (text span)
 - Intercoder agreement
 </div>
 
@@ -186,14 +186,20 @@ Then, I tested GPT with zero‑shot and few‑shot prompts, and built a visualiz
 <img src="figure/an_1.png" alt="背景圖" style="width:100%; height:100%; object-fit:cover;">
 
 ---
+<!--_paginate: true-->
+
 <!-- XX黨 is the target entity -->
 <img src="figure/an_2.png" alt="背景圖" style="width:100%; height:100%; object-fit:cover;">
 
 ---
+<!--_paginate: true-->
+
 <!-- this belongs to the negative evaluation of veracity -->
 <img src="figure/an_3.png" alt="背景圖" style="width:100%; height:100%; object-fit:cover;">
 
 ---
+<!--_paginate: true-->
+
 <!-- and the evaluative expression here is 說謊 -->
 <img src="figure/an_4.png" alt="背景圖" style="width:100%; height:100%; object-fit:cover;">
 
@@ -203,8 +209,8 @@ The outputs were integrated into a dashboard, allowing users to explore evaluati
 <!--_paginate: true-->
 ## Automation
 
-* GPT-based classification
-* Visualization dashboard
+- GPT-based classification
+- Visualization dashboard
 
 ---
 
@@ -393,6 +399,8 @@ Few‑shot prompting corrected many errors that zero‑shot had made, showing th
 # **Discussion**
 
 ---
+<!--_paginate: true-->
+
 <!--If we look at the evaluation of negative propriety the whole year, we can find two spike that close to each other. So we will focus on these two spike, which is around June to August -->
 ### DPP: Negative Evaluation of <span style="font-variant:small-caps;">propriety</span>
 
@@ -405,6 +413,7 @@ Few‑shot prompting corrected many errors that zero‑shot had made, showing th
 ></iframe>
 
 ---
+<!--_paginate: true-->
 
 <!-- To see exactly how dpp is evaluate, we can adjust the panel from June to August -->
 <iframe
@@ -445,6 +454,7 @@ These were linked to Lai’s ‘democracy vs dictatorship’ statement, people r
 </div>
 
 ---
+<!--_paginate: true-->
 
 <!--If we look at the evaluation of negative capacity the whole year for kmt, we can find the highest spike around April. So next we will focus on this spike-->
 ### KMT: Negative Evaluation of <span style="font-variant:small-caps;">capacity</span>
@@ -458,6 +468,7 @@ These were linked to Lai’s ‘democracy vs dictatorship’ statement, people r
 ></iframe>
 
 ---
+<!--_paginate: true-->
 
 <!-- To see exactly how dpp is evaluate, we can adjust the panel from June to August. we can see terms like 內鬥智障 in the word cloud, so -->
 <iframe
@@ -487,6 +498,7 @@ These evaluations framed the KMT as organizationally incompetent -->
 ### GPT Prompt Setting: Error Analysis
 
 ---
+<!--_paginate: true-->
 
 <!-- Zero-shot models often confuse similar subcategories — for example, interpreting tenacity as capacity or normality as propriety.
 With few-shot prompting, the model learns semantic cues that help it make finer distinctions.
