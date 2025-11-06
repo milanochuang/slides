@@ -423,7 +423,7 @@ These were linked to Lai’s ‘democracy vs dictatorship’ statement, people r
 ### DPP: Negative Evaluation of <span style="font-variant:small-caps;">propriety</span>
 - **Spikes in criticism**: June & August  
 - **Key evaluative terms**:  
-專制 'Dictatorship', 厭女 'Misogyny', 貪污 'Corruption'
+專制 'dictatorship', 厭女 'misogyny', 貪污 'corruption'
 - **Triggering events**:  
   - Lai's "democracy vs dictatorship" → backlash  
   - DPP accused of misogyny → counter against DPP  
@@ -476,7 +476,7 @@ These evaluations framed the KMT as organizationally incompetent -->
 ### KMT: Negative Evaluation of <span style="font-variant:small-caps;">capacity</span>
 - Spikes in criticism: April peak, November rise
 - Key evaluative terms:  
-內鬥 'infight', 智障 'stupid', 無能 'Ueless'
+內鬥 'infight', 智障 'stupid', 無能 'useless'
 - Triggering events:
   - Candidate selection delays → frustration
   - Visible intra‑party conflict → loss of unity
