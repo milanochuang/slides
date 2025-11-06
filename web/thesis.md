@@ -6,7 +6,7 @@ html: true
 
 <!-- _class: lead -->
 
-<!-- Good afternoon everyone. Today, I will present my research, My study focuses on how we can use large language model from the perspective of evaluative language to understand public opinion in online political discussions — specifically, how people evaluate political parties on PTT. -->
+<!-- Good afternoon everyone. My name is Hao‑Yun Chuang from the Graduate Institute of Linguistics at NCCU. Today I will present my study Political Comment Opinion Analysis and Applications of Large Language Models: A Case Study of Social Media Comments on Taiwan’s 2024 Presidential Election.   -->
 
 #### Political Comment Opinion Analysis and Applications of Large Language Models: A Case Study of Social Media Comments on Taiwan's 2024 Presidential Election
 
@@ -19,10 +19,12 @@ Graduate Institute of Linguistics, NCCU  
 </div>
 
 ---
-
+<!-- Let me begin with the nature of online political comments.  
+On platforms like PTT, people like to discuss and criticize to the topics related to the politics, so political comments such as ‘腐化的Ａ黨’ are common. A 黨 in these comments function as cognitive shortcuts, shaping how people perceive entire parties rather than just individuals.  
+These kinds of comment spread rapidly, are anonymous, grassroots in nature, and highly diverse. This makes them a rich source for analyzing the public opinion in the political discourse. -->
 <!--_paginate: true-->
 ## Online political comment
-- 「貪污腐化的Ａ黨」→ political comment
+- 「腐化的Ａ黨」→ political comment
 - As an cognitive shortcut
 → people tend to evaluate political party (Gastil, 2014)
 - Characteristics
@@ -31,6 +33,9 @@ Graduate Institute of Linguistics, NCCU  
   - Diversity and large scale
 
 ---
+<!-- Most NLP research has focused only on polarity — whether a comment is positive or negative.  
+But It overlooks evaluative dimensions such as competence, honesty, or morality.  
+My study argues that we need fine‑grained categories to understand how party are evaluted in the online political discourse.  -->
 
 <!--_paginate: true-->
 ### Deeper understanding of the comment
@@ -41,6 +46,7 @@ Graduate Institute of Linguistics, NCCU  
 
 ---
 
+<!-- To address this, I adopt the Appraisal framework proposed by White in 2005. This framework, rooted in Systemic Functional Linguistics, analyzes how language conveys attitudes and evaluations. It provides structured categories that allow us to go beyond simple sentiment and capture nuanced dimensions in the evaluation. -->
 <!--_paginate: true-->
 ### Appraisal framework (White, 2005)
 
@@ -49,7 +55,15 @@ Graduate Institute of Linguistics, NCCU  
 
 
 ---
+<!-- Within the Appraisal framework, I focus on the subsystem of JUDGEMENT.  
+It has five subcategories:
 
+•  Capacity: competence, e.g. ‘Party A is incompetent’.
+•  Propriety: morality, e.g. ‘Don’t vote for corrupt Party B’.
+•  Veracity: honesty, e.g. ‘Party C always lies’.
+•  Tenacity: determination, e.g. ‘Party D breaks promises’.
+•  Normality: unusualness, e.g. ‘Party E acting strangely’.  
+These distinctions allow us to see not just negativity, but *what kind* f negativity-->
 <!--_paginate: true-->
 ## <span style="font-variant:small-caps;">judgement</span> & subcategories
 <div style="transform: scale(1);">
@@ -63,34 +77,34 @@ Graduate Institute of Linguistics, NCCU  
   <tr>
     <td>Capacity</td>
     <td>competence, intelligence</td>
-    <td><span style="background-color: #94d2eeff;">A 黨</span>無能！</td>
+    <td>A 黨<span style="background-color: #94d2eeff;">無能</span>！</td>
   </tr>
   <tr>
     <td>Propriety</td>
     <td>morality, ethics</td>
-    <td>不投腐敗的<span style="background-color: #94d2eeff;">B 黨</span>！</td>
+    <td>不投<span style="background-color: #94d2eeff;">腐敗</span>的B 黨！</td>
   </tr>
   <tr>
     <td>Veracity</td>
     <td>honesty, truthfulness</td>
-    <td>整天說謊的就<span style="background-color: #94d2eeff;">C 黨</span>！</td>
+    <td>整天<span style="background-color: #94d2eeff;">說謊</span>的就C 黨！</td>
   </tr>
   <tr>
     <td>Tenacity</td>
     <td>determination</td>
-    <td>簽了又翻桌的<span style="background-color: #94d2eeff;">D 黨</span>！</td>
+    <td>簽了又<span style="background-color: #94d2eeff;">翻桌</span>的D 黨！</td>
   </tr>
   <tr>
     <td>Normality</td>
     <td>unusualness</td>
-    <td><span style="background-color: #94d2eeff;">E 黨</span>願意才奇怪勒！</td>
+    <td>E 黨願意才<span style="background-color: #94d2eeff;">奇怪</span>勒！</td>
   </tr>
 </table>
 
 </div>
 
 ---
-
+<!-- Manual annotation of appraisal categories is very time‑consuming. Traditional machine learning models require retraining and lack flexibility. Large language models, however, are more context‑aware. By designing prompts, we can guide them to classify evaluative language automatically. I also implemented a visualization dashboard to make these evaluations accessible. -->
 <!--_paginate: true-->
 ## Automated detection
 - Manual annotation of Appraisal → low efficiency
@@ -99,7 +113,10 @@ Graduate Institute of Linguistics, NCCU  
 - Implementation: visualization of the evaluation
 
 ---
+<!--My study addresses two main questions:
 
+1.  How do Taiwanese social media users employ evaluative language through JUDGEMENT subcategories to express opinions toward political parties?
+2.  How do different prompting strategies — zero‑shot versus few‑shot — influence GPT’s performance in classifying these subcategories?-->
 <!--_paginate: true-->
 ## Research question
 <div style="font-size: 36px; line-height: 1.6; text-align: left; max-width: 100%;">
@@ -114,23 +131,29 @@ Graduate Institute of Linguistics, NCCU  
 ## Literature review
 
 ---
+<!--• the Appraisal framework divide evaluation into Attitude, Graduation, and Engagement. It also divides Attitude into AFFECT, JUDGEMENT, and APPRECIATION, which provides tools and fine-grained categories to systematically describe how people evaluate through language. to analyze the political discourse, JUDGEMENT is the most suitable, here's why” -->
+<!--_paginate: true-->
 
-## Evaluative Language Framework
-1. Stance triangle (Du Bois, 2007)
-2. Politeness theory (Brown & Levinson, 1987)
-3. Appraisal framework (White, 2005)
-  - Divide Attitude to 3 subsystem: <span style="font-variant:small-caps;">affect</span>, <span style="font-variant:small-caps;">judgement</span>, <span style="font-variant:small-caps;">appreciation</span>
-  - Focus on <span style="font-variant:small-caps;">judgement</span> with its five subcategories
+## Appraisal framework
+- Composed of <span style="font-variant:small-caps;">attitude</span>, <span style="font-variant:small-caps;">engagement</span>, and <span style="font-variant:small-caps;">graduation</span>.  
+- Provides a tool to systematically describe how speakers or writers evaluate through language.  
+- Commonly applied in different texts (e.g., politics, media, education)
 
 ---
-
-<!-- _style: text-align: left -->
+<!-- Previous studies show that political comments often focus on behavior and character.  
+In Chinese political contexts, JUDGEMENT has also proven to be especially relevant.  
+because it captures accusations of dishonesty, incompetence, or moral failure.-->
+<!--_paginate: true-->
 
 ## <span style="font-variant:small-caps;">judgement</span> in Political Discourse
-1. Political comments focus on target's behavior and character. (Zappavigna, 2017; Cavasso & Taboada, 2021)
-2. <span style="font-variant:small-caps;">judgement</span> is proven to be an appropriate resources in Chinese political context
+- Political comments focus on target's behavior and character. (Zappavigna, 2017; Cavasso & Taboada, 2021)
+- <span style="font-variant:small-caps;">judgement</span> is proven to be an appropriate resources in Chinese political context
 
 ---
+<!-- As for the automated detection of appraisal, Earlier approaches relied on lexicons and rules, which struggled with dynamic online language.  
+Deep learning models like BERT and RoBERTa improved performance, but still misclassified fine‑grained categories.  
+Recent work with ChatGPT shows promise, but also frequent errors due to the classification of the whole categories in the framework. My study, therefore, investigates whether prompt engineering can improve classification under one category-->
+<!--_paginate: true-->
 
 ## Automated Detection in Appraisal
 - Traditional machine learning: relies on lexicons and rules, difficult to adapt to dynamic language (Casey et al., 2005)  
@@ -138,11 +161,10 @@ Graduate Institute of Linguistics, NCCU  
 - ChatGPT applications (Imamovic et al., 2024): classify top-down, often misclassifies JUDGEMENT subcategories
 
 ---
-
-## Automated Detection
-
----
-
+<!-- My data comes from the PTT Gossiping board.  
+I manually annotated comments for target entity, inscribed JUDGEMENT, polarity, and subcategory.  
+Inter‑coder agreement was measured to ensure reliability.  
+Then, I tested GPT with zero‑shot and few‑shot prompts, and built a visualization dashboard to display trends and word clouds. -->
 <!--_paginate: true-->
 ## Methodology
 
@@ -158,24 +180,26 @@ Graduate Institute of Linguistics, NCCU  
 </div>
 
 ---
+<!--_paginate: true-->
 
-<!-- ## Annotation process -->
+<!-- for example -->
 <img src="figure/an_1.png" alt="背景圖" style="width:100%; height:100%; object-fit:cover;">
 
 ---
-
+<!-- XX黨 is the target entity -->
 <img src="figure/an_2.png" alt="背景圖" style="width:100%; height:100%; object-fit:cover;">
 
 ---
-
+<!-- this belongs to the negative evaluation of veracity -->
 <img src="figure/an_3.png" alt="背景圖" style="width:100%; height:100%; object-fit:cover;">
 
 ---
-
+<!-- and the evaluative expression here is 說謊 -->
 <img src="figure/an_4.png" alt="背景圖" style="width:100%; height:100%; object-fit:cover;">
 
 ---
-
+<!-- After annotation, GPT models were applied for automated classification.  
+The outputs were integrated into a dashboard, allowing users to explore evaluations by party, subcategory, and time period. -->
 <!--_paginate: true-->
 ## Automation
 
@@ -188,7 +212,10 @@ Graduate Institute of Linguistics, NCCU  
 
 ---
 
-<!-- -->
+<!-- The results show clear differences across parties.  
+For the DPP, negative Propriety evaluations dominated.  
+For the KMT, negative Capacity evaluations were most frequent.  
+The TPP received far fewer evaluations overall, which may due to its newer presence. -->
 <!--_paginate: true-->
 #### Evaluative <span style="font-variant:small-caps;">judgement</span> Frequency
 <div style="display: flex; font-family: Arial, sans-serif; font-size: 30px;">
@@ -245,7 +272,10 @@ Graduate Institute of Linguistics, NCCU  
 
 ---
 <!--_paginate: true-->
-<!-- -->
+<!-- Statistical tests confirmed significant differences.  
+For example, CAPACITY evaluations were 13 times more likely to target the KMT than the DPP.  
+Meanwhile, PROPRIETY evaluations were 7 times more likely to target the DPP.  
+These findings highlight distinct evaluative patterns. Moreover, DPP's negative propriety and KMT's negative capacity all show dominant number in contributing the significance in the statistical test.-->
 #### Fisher's Test: <span style="font-variant:small-caps;">judgement</span> subcategories
 
 <div style="font-family: Arial, sans-serif; font-size: 30px;">
@@ -273,7 +303,8 @@ Graduate Institute of Linguistics, NCCU  
 
 ---
 <!--_paginate: true-->
-<!--  -->
+<!-- Comparing zero‑shot and few‑shot prompting, few‑shot consistently outperformed zero‑shot.  
+Overall, the weighted F1 score rose from 0.80 to 0.89. -->
 #### Classification Report
 
 <div style="font-family: Arial, sans-serif; font-size: 27px;">
@@ -317,6 +348,8 @@ Graduate Institute of Linguistics, NCCU  
 </div>
 
 ---
+<!-- McNemar test confirmed that the improvement was statistically significant.  
+Few‑shot prompting corrected many errors that zero‑shot had made, showing the value of carefully designed prompts.” -->
 <!--_paginate: true-->
 ## McNemar Test
 <div style="transform: scale(0.85); transform-origin: top left; width: 120%;">
@@ -360,7 +393,7 @@ Graduate Institute of Linguistics, NCCU  
 # **Discussion**
 
 ---
-<!--  -->
+<!--If we look at the evaluation of negative propriety the whole year, we can find two spike that close to each other. So we will focus on these two spike, which is around June to August -->
 ### DPP: Negative Evaluation of <span style="font-variant:small-caps;">propriety</span>
 
 <iframe
@@ -373,7 +406,7 @@ Graduate Institute of Linguistics, NCCU  
 
 ---
 
-<!--  -->
+<!-- To see exactly how dpp is evaluate, we can adjust the panel from June to August -->
 <iframe
   src="https://publicopiniondashboard-milanochuang.streamlit.app/?section=wordcloud&embedded=true&scale=1"
   width="1200"
@@ -384,24 +417,25 @@ Graduate Institute of Linguistics, NCCU  
 
 ---
 <!--_paginate: true-->
-<!--  -->
+<!-- Negative evaluations of the DPP’s Propriety spiked in June and August.  
+As we can see from the previous slides, Key terms have included dictatorship, misogyny, corruption, and trash.  
+These were linked to Lai’s ‘democracy vs dictatorship’ statement, people refute that dpp is the one who is dictator. Worth to note that because of the #MeToo movement was under the spotlight at that time, though may not be directly related to metoo movement, as long as it's propriety-related issue, people also like to raise questions about the DPP’s handling of gender issues altogether. -->
 ### DPP: Negative Evaluation of <span style="font-variant:small-caps;">propriety</span>
 - **Spikes in criticism**: June & August  
 - **Key evaluative terms**:  
-*Dictatorship*, *Misogyny*, *Corruption*, *Trash*  
+專制 'Dictatorship', 厭女 'Misogyny', 貪污 'Corruption'
 - **Triggering events**:  
   - Lai's "democracy vs dictatorship" → backlash  
   - DPP accused of misogyny → counter against DPP  
-  - \#MeToo movement → DPP's handling of cases  
 - **Gender issues intertwined**: sexual harassment, assault, rape linked to \#MeToo discourse
 
 ---
+<!-- This scandal is against societal expectations about dpp because dpp brands itself on progressive value. However, this scandal may create credibility gap for people, which is harder to repair, and might cause stronger erosion of legitimacy and voter support -->
 <!--_paginate: true-->
 
 ### DPP: Negative Evaluation of <span style="font-variant:small-caps;">propriety</span>
-- **Appraisal framework**:  
-  - DPP against societal expectations  
-  - Party's progressive value → credibility gap  
+- DPP against societal expectations  
+- Party's progressive value → credibility gap  
 - **Impact**:  
   - <span style="font-variant:small-caps;">propriety</span> damage harder to repair
   - Stronger erosion of legitimacy and voter support
@@ -412,8 +446,7 @@ Graduate Institute of Linguistics, NCCU  
 
 ---
 
-<!-- -->
-
+<!--If we look at the evaluation of negative capacity the whole year for kmt, we can find the highest spike around April. So next we will focus on this spike-->
 ### KMT: Negative Evaluation of <span style="font-variant:small-caps;">capacity</span>
 
 <iframe
@@ -426,7 +459,7 @@ Graduate Institute of Linguistics, NCCU  
 
 ---
 
-<!-- -->
+<!-- To see exactly how dpp is evaluate, we can adjust the panel from June to August. we can see terms like 內鬥智障 in the word cloud, so -->
 <iframe
   src="https://publicopiniondashboard-milanochuang.streamlit.app/?section=wordcloud&embedded=true&scale=1"
   width="1200"
@@ -437,11 +470,13 @@ Graduate Institute of Linguistics, NCCU  
 
 ---
 <!--_paginate: true-->
-<!-- -->
+<!-- 
+Terms like infighting and useless reflected frustration with delays in candidate selection and visible intra‑party conflict.  
+These evaluations framed the KMT as organizationally incompetent -->
 ### KMT: Negative Evaluation of <span style="font-variant:small-caps;">capacity</span>
 - Spikes in criticism: April peak, November rise
 - Key evaluative terms:  
-*infighting*, *Supid*, *Ueless*, *No combat power* 
+內鬥 'infight', 智障 'stupid', 無能 'Ueless'
 - Triggering events:
   - Candidate selection delays → frustration
   - Visible intra‑party conflict → loss of unity
@@ -453,7 +488,9 @@ Graduate Institute of Linguistics, NCCU  
 
 ---
 
-<!--  -->
+<!-- Zero-shot models often confuse similar subcategories — for example, interpreting tenacity as capacity or normality as propriety.
+With few-shot prompting, the model learns semantic cues that help it make finer distinctions.
+As a result, tenacity is correctly identified in 14 out of 16 cases, and normality in 3 out of 4, showing that targeted examples can significantly improve classification. -->
 ### Few-shot Improves Classification
 
 <div style="font-size: 36px; line-height: 1.6; text-align: center; max-width: 100%;">
@@ -466,7 +503,9 @@ Graduate Institute of Linguistics, NCCU  
 
 ---
 <!--_paginate: true-->
-<!-- -->
+<!-- However, Even with few-shot prompting, some misclassifications remain.
+The most common errors are confusing propriety with capacity — 10 out of 15 times — and capacity with normality — 6 out of 14 times.
+These cases show that evaluative expression are still hard for the model to capture precisely. So let's look closely at theses errors. -->
 ### Few-shot: Error Analysis
 
 <div style="font-size: 36px; line-height: 1.6; text-align: center; max-width: 100%;">
@@ -480,14 +519,17 @@ Graduate Institute of Linguistics, NCCU  
 
 ---
 <!--_paginate: true-->
-<!-- -->
+<!-- Here, the model often mistakes propriety for evaluations of capacity.
+For example: “民進黨的國家機器真有夠噁爛”
+The gold label is propriety, because it criticizes the unethical use of state power in the context of the democratic country. Becasue the word state appratus itself means the manipulative power of the government, the model predicts capacity, interpreting it as a comment on competence.
+This reflects how political language can confuse without knowing the context of the data, making classification challenging. -->
 #### Error Type 1: <span style="font-variant:small-caps;">propriety</span> → <span style="font-variant:small-caps;">capacity</span>
 
 <div style="font-size: 36px; line-height: 1.6; text-align: left; max-width: 100%;">
 
 **Example (12)**  
-Gold: <span style="font-variant:small-caps;">propriety</span> (moral judgment)  
-Predicted: <span style="font-variant:small-caps;">capacity</span> (misread as competence)
+Gold: <span style="font-variant:small-caps;">propriety</span>
+Predicted: <span style="font-variant:small-caps;">capacity</span>
 
 (12) **民進黨的國家機器真有夠噁爛**
 &emsp;&emsp;**"The DPP's state apparatus is truly disgusting."**
@@ -500,14 +542,15 @@ Predicted: <span style="font-variant:small-caps;">capacity</span> (misread as co
 
 ---
 <!--_paginate: true-->
-<!-- -->
-#### Error Type 2: *CAPACITY* → *NORMALITY*
+<!-- Another recurring error is reading capacity as normality.
+For example: “國民黨內部一片混亂” the gold label is CAPACITY because 一片混亂 ‘utter chaos’ evaluates the party’s managerial incompetence, but the model misclassified it as NORMALITY, interpreting it as a deviation from order. Since such expressions in political contexts often signal inability rather than mere abnormality, domain-specific prompts could help reduce this ambiguity.-->
+#### Error Type 2: <span style="font-variant:small-caps;">capacity</span> → <span style="font-variant:small-caps;">normality</span>
 
 <div style="font-size: 36px; line-height: 1.6; text-align: left; max-width: 100%;">
 
 **Example (13)**  
-Gold: *capacity* (competence)  
-Predicted: *capacity* (abnormality)
+Gold: <span style="font-variant:small-caps;">capacity</span>  
+Predicted: <span style="font-variant:small-caps;">normality</span>
 
 (13) **國民黨內部一片混亂**
 &emsp;&emsp;**"The KMT is in utter chaos internally."**
@@ -518,13 +561,15 @@ Predicted: *capacity* (abnormality)
 
 ---
 <!--_paginate: true-->
-<!-- -->
+<!-- This study has limitations: keyword‑based data may introduce bias, sarcasm and irony were excluded, and only inscribed evaluations were analyzed.  
+Nevertheless, the findings show that: commenters tend to evaluate the organizational ability of the party as the ability to govern the country, while commenters also tend to evaluate how party handle scandals to see if the party is morally legitimate enough to govern.
+This demonstrates the potential of large language models to assist in political discourse analysis, while also highlighting the need for domain‑specific prompt design.” -->
 ### Limitation & Conclusion
 - Limitations:
   - Keyword-based dataset → possible selection bias
   - Exclusion of sarcasm/irony
-- Capacity to govern vs. Legitimacy to govern
-- Evaluative expressions reshape legitimacy to govern
+- Capacity to govern vs. Propriety to govern
+- Evaluative expressions reshape the political image
 - Classification experiments:
   - Few-shot prompting improved performance.
   - Need prompts enriched with domain-oriented knowledge.
