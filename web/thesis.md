@@ -6,9 +6,9 @@ html: true
 
 <!-- _class: lead -->
 
-<!-- Good afternoon everyone. My name is Hao‑Yun Chuang from the Graduate Institute of Linguistics at NCCU. Today I will present my study Political Comment Opinion Analysis and Applications of Large Language Models: A Case Study of Social Media Comments on Taiwan’s 2024 Presidential Election.   -->
+<!-- Good afternoon everyone. My name is Hao‑Yun Chuang from the Graduate Institute of Linguistics at NCCU. Today I will present my study Evaluations of Political Judgements: A Corpus-Based Appraisal Analysis of Online Comments on the Taiwan 2024 Presidential Election and its Utility for LLM Implementation.   -->
 
-#### Political Comment Opinion Analysis and Applications of Large Language Models: A Case Study of Social Media Comments on Taiwan's 2024 Presidential Election
+#### Evaluations of Political Judgements: A Corpus-Based Appraisal Analysis of Online Comments on the Taiwan 2024 Presidential Election and its Utility for LLM Implementation
 
 <div style="position: absolute; bottom: 30px; left: 100px; font-size: 0.8em; text-align: left;">
 
@@ -280,8 +280,8 @@ The TPP received far fewer evaluations overall, which may due to its newer prese
 <!--_paginate: true-->
 <!-- Statistical tests confirmed significant differences.  
 For example, CAPACITY evaluations were 13 times more likely to target the KMT than the DPP.  
-Meanwhile, PROPRIETY evaluations were 7 times more likely to target the DPP.  
-These findings highlight distinct evaluative patterns. Moreover, DPP's negative propriety and KMT's negative capacity all show dominant number in contributing the significance in the statistical test.-->
+Meanwhile, PROPRIETY evaluations were 7 times more likely to target the DPP than KMT.  
+These findings highlight distinct evaluative patterns pairwise. Moreover, DPP's negative propriety and KMT's negative capacity all show dominant number in contributing the significance in the statistical test. Later we will investigate deeper the reason behind through the visualization dashboard.-->
 #### Fisher's Test: <span style="font-variant:small-caps;">judgement</span> subcategories
 
 <div style="font-family: Arial, sans-serif; font-size: 30px;">
@@ -427,7 +427,7 @@ Few‑shot prompting corrected many errors that zero‑shot had made, showing th
 ---
 <!--_paginate: true-->
 <!-- Negative evaluations of the DPP’s Propriety spiked in June and August.  
-As we can see from the previous slides, Key terms have included dictatorship, misogyny, corruption, and trash.  
+As we can see from the previous slides, Key terms include dictatorship, misogyny, corruption, and trash.  
 These were linked to Lai’s ‘democracy vs dictatorship’ statement, people refute that dpp is the one who is dictator. Worth to note that because of the #MeToo movement was under the spotlight at that time, though may not be directly related to metoo movement, as long as it's propriety-related issue, people also like to raise questions about the DPP’s handling of gender issues altogether. -->
 ### DPP: Negative Evaluation of <span style="font-variant:small-caps;">propriety</span>
 - **Spikes in criticism**: June & August  
@@ -554,8 +554,9 @@ Predicted: <span style="font-variant:small-caps;">capacity</span>
 
 ---
 <!--_paginate: true-->
-<!-- Another recurring error is reading capacity as normality.
-For example: “國民黨內部一片混亂” the gold label is CAPACITY because 一片混亂 ‘utter chaos’ evaluates the party’s managerial incompetence, but the model misclassified it as NORMALITY, interpreting it as a deviation from order. Since such expressions in political contexts often signal inability rather than mere abnormality, domain-specific prompts could help reduce this ambiguity.-->
+<!-- 
+Another recurring error is reading capacity as normality.
+For example: “國民黨內部一片混亂” the gold label is CAPACITY because 一片混亂 ‘utter chaos’ actually evaluates the party’s managerial incompetence, but the model misclassified it as NORMALITY, interpreting it as a deviation from the actual order in the room. It shows its ability to identify the metonymy. Since such expressions in political contexts often signal inability rather than mere abnormality, deeper investigation in metonymy identificaiton with LLM could help reduce this ambiguity.-->
 #### Error Type 2: <span style="font-variant:small-caps;">capacity</span> → <span style="font-variant:small-caps;">normality</span>
 
 <div style="font-size: 36px; line-height: 1.6; text-align: left; max-width: 100%;">
@@ -564,8 +565,8 @@ For example: “國民黨內部一片混亂” the gold label is CAPACITY becaus
 Gold: <span style="font-variant:small-caps;">capacity</span>  
 Predicted: <span style="font-variant:small-caps;">normality</span>
 
-(13) **國民黨內部一片混亂**
-&emsp;&emsp;**"The KMT is in utter chaos internally."**
+(13) **國民黨中央一片混亂**
+&emsp;&emsp;**"The KMT central is in utter chaos internally."**
 - Issue: Model interprets the phrase as norm deviation rather than inability to manage internal affairs.  
 - Insight: More domain-tailored examples could clarify the boundary.
 
@@ -574,7 +575,7 @@ Predicted: <span style="font-variant:small-caps;">normality</span>
 ---
 <!--_paginate: true-->
 <!-- This study has limitations: keyword‑based data may introduce bias, sarcasm and irony were excluded, and only inscribed evaluations were analyzed.  
-Nevertheless, the findings show that: commenters tend to evaluate the organizational ability of the party as the ability to govern the country, while commenters also tend to evaluate how party handle scandals to see if the party is morally legitimate enough to govern.
+Nevertheless, the findings show that: when it comes to the infight in the party, people tend to evaluate it as the deficiency of the ability, while commenters also tend to evaluate how party handle scandals to see if the party is morally legitimate enough to govern.
 This demonstrates the potential of large language models to assist in political discourse analysis, while also highlighting the need for domain‑specific prompt design.” -->
 ### Limitation & Conclusion
 - Limitations:
