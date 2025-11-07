@@ -20,8 +20,8 @@ Graduate Institute of Linguistics, NCCU  
 
 ---
 <!-- Let me begin with the nature of online political comments.  
-On platforms like PTT, people like to discuss and criticize to the topics related to the politics, so political comments such as ‘腐化的Ａ黨’ are common. A 黨 in these comments function as cognitive shortcuts, shaping how people perceive entire parties rather than just individuals.  
-These kinds of comment spread rapidly, are anonymous, grassroots in nature, and highly diverse. This makes them a rich source for analyzing the public opinion in the political discourse. -->
+On platforms like PTT, people like to discuss and criticize to the topics related to the politics, so political comments such as ‘腐化的Ａ黨’ are common. A 黨 in these comments function as cognitive shortcuts, shaping how people perceive entire parties rather than just individuals. Therefore, this study will focus on how people evaluate parties.  
+These kinds of political comment spread rapidly, are anonymous, grassroots in nature, and highly diverse. This makes them a rich source for analyzing the public opinion in the political discourse. -->
 <!--_paginate: true-->
 ## Online Political Comment
 - 「腐化的Ａ黨」→ political comment
@@ -33,7 +33,7 @@ These kinds of comment spread rapidly, are anonymous, grassroots in nature, and 
   - Diversity and large scale
 
 ---
-<!-- Most NLP research has focused only on polarity — whether a comment is positive or negative.  
+<!-- Most NLP research on analyzing such public opinion has mostly focused on polarity — whether a comment is positive or negative.  
 But It overlooks evaluative dimensions such as competence, honesty, or morality.  
 My study argues that we need fine‑grained categories to understand how party are evaluted in the online political discourse.  -->
 
@@ -58,12 +58,12 @@ My study argues that we need fine‑grained categories to understand how party a
 <!-- Within the Appraisal framework, I focus on the subsystem of JUDGEMENT.  
 It has five subcategories:
 
-•  Capacity: competence, e.g. ‘Party A is incompetent’.
-•  Propriety: morality, e.g. ‘Don’t vote for corrupt Party B’.
-•  Veracity: honesty, e.g. ‘Party C always lies’.
-•  Tenacity: determination, e.g. ‘Party D breaks promises’.
-•  Normality: unusualness, e.g. ‘Party E acting strangely’.  
-These distinctions allow us to see not just negativity, but *what kind* f negativity-->
+•  Capacity: competence, e.g. ‘A黨又沒實力’. is the evaluation of incompetence targeting A 黨
+•  Propriety: morality, e.g. ‘Ｂ黨最公平公正公開’.
+•  Veracity: honesty, e.g. ‘Ｃ黨都在說謊’.
+•  Tenacity: determination, e.g. ‘Ｄ黨保持從政初心’.
+•  Normality: unusualness, e.g. ‘Ｅ黨願意才奇怪’.  
+These distinctions allow us to see not just positivity or negativity, but *what kind* of negativity in the evaluation-->
 <!--_paginate: true-->
 ## <span style="font-variant:small-caps;">judgement</span> & Subcategories
 <div style="transform: scale(1);">
@@ -77,22 +77,22 @@ These distinctions allow us to see not just negativity, but *what kind* f negati
   <tr>
     <td>Capacity</td>
     <td>competence, intelligence</td>
-    <td>A 黨<span style="background-color: #94d2eeff;">無能</span>！</td>
+    <td>A 黨又<span style="background-color: #94d2eeff;">沒實力</span>！</td>
   </tr>
   <tr>
     <td>Propriety</td>
     <td>morality, ethics</td>
-    <td>不投<span style="background-color: #94d2eeff;">腐敗</span>的B 黨！</td>
+    <td>Ｂ黨最<span style="background-color: #94d2eeff;">公平公正公開</span>！</td>
   </tr>
   <tr>
     <td>Veracity</td>
     <td>honesty, truthfulness</td>
-    <td>整天<span style="background-color: #94d2eeff;">說謊</span>的就C 黨！</td>
+    <td>Ｃ黨都在<span style="background-color: #94d2eeff;">說謊</span>！</td>
   </tr>
   <tr>
     <td>Tenacity</td>
     <td>determination</td>
-    <td>簽了又<span style="background-color: #94d2eeff;">翻桌</span>的D 黨！</td>
+    <td>Ｄ黨<span style="background-color: #94d2eeff;">保持</span>從政初心！</td>
   </tr>
   <tr>
     <td>Normality</td>
@@ -470,7 +470,7 @@ these were linked to Lai’s ‘democracy vs dictatorship’ statement, people r
 ---
 <!--_paginate: true-->
 
-<!-- To see exactly how dpp is evaluate, samely, we can adjust the panel from June to August. we can see terms like 內鬥智障 in the word cloud, so -->
+<!-- To see exactly how dpp is evaluate, samely, we can adjust the panel from march to april. we can see terms like 內鬥智障 in the word cloud, so -->
 <iframe
   src="https://publicopiniondashboard-milanochuang.streamlit.app/?section=wordcloud&embedded=true&scale=1"
   width="1200"
