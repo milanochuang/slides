@@ -23,7 +23,7 @@ Graduate Institute of Linguistics, NCCU  
 On platforms like PTT, people like to discuss and criticize to the topics related to the politics, so political comments such as ‘腐化的Ａ黨’ are common. A 黨 in these comments function as cognitive shortcuts, shaping how people perceive entire parties rather than just individuals.  
 These kinds of comment spread rapidly, are anonymous, grassroots in nature, and highly diverse. This makes them a rich source for analyzing the public opinion in the political discourse. -->
 <!--_paginate: true-->
-## Online political comment
+## Online Political Comment
 - 「腐化的Ａ黨」→ political comment
 - As an cognitive shortcut
 → people tend to evaluate political party (Gastil, 2014)
@@ -38,7 +38,7 @@ But It overlooks evaluative dimensions such as competence, honesty, or morality.
 My study argues that we need fine‑grained categories to understand how party are evaluted in the online political discourse.  -->
 
 <!--_paginate: true-->
-### Deeper understanding of the comment
+### Deeper Understanding of the Comment
 - Most research in NLP mostly limit at polarity.
 - Evaluative dimensions may be overlooked.
 - More fine-grained categories of evaluations is needed.
@@ -48,7 +48,7 @@ My study argues that we need fine‑grained categories to understand how party a
 
 <!-- To address this, I adopt the Appraisal framework proposed by White in 2005. This framework, rooted in Systemic Functional Linguistics, analyzes how language conveys attitudes and evaluations. It provides structured categories that allow us to go beyond simple sentiment and capture nuanced dimensions in the evaluation. -->
 <!--_paginate: true-->
-### Appraisal framework (White, 2005)
+### Appraisal Framework (White, 2005)
 
 - Derives from Systemic Functional Linguistics
 - Analyzes how language conveys attitudes and evaluations in communication
@@ -65,7 +65,7 @@ It has five subcategories:
 •  Normality: unusualness, e.g. ‘Party E acting strangely’.  
 These distinctions allow us to see not just negativity, but *what kind* f negativity-->
 <!--_paginate: true-->
-## <span style="font-variant:small-caps;">judgement</span> & subcategories
+## <span style="font-variant:small-caps;">judgement</span> & Subcategories
 <div style="transform: scale(1);">
 
 <table style="width: 100%; text-align: center; border-collapse: collapse; font-size: 32px;">
@@ -106,7 +106,7 @@ These distinctions allow us to see not just negativity, but *what kind* f negati
 ---
 <!-- Manual annotation of appraisal categories is very time‑consuming. Traditional machine learning models require retraining and lack flexibility. Large language models, however, are more context‑aware. By designing prompts, we can guide them to classify evaluative language automatically. I also implemented a visualization dashboard to make these evaluations accessible. -->
 <!--_paginate: true-->
-## Automated detection
+## Automated Detection
 - Manual annotation of Appraisal → low efficiency
 - Non-generative model limitation → need to retrain
 - More context-aware generative LLM → prompting
@@ -118,7 +118,7 @@ These distinctions allow us to see not just negativity, but *what kind* f negati
 1.  How do Taiwanese social media users employ evaluative language through JUDGEMENT subcategories to express opinions toward political parties?
 2.  How do different prompting strategies — zero‑shot versus few‑shot — influence GPT’s performance in classifying these subcategories?-->
 <!--_paginate: true-->
-## Research question
+## Research Question
 <div style="font-size: 36px; line-height: 1.6; text-align: left; max-width: 100%;">
 
 1. How do Taiwanese social media users employ evaluative language through <span style="font-variant:small-caps;">judgement</span> subcategories within the Appraisal framework to express opinions toward different political parties?
@@ -128,13 +128,13 @@ These distinctions allow us to see not just negativity, but *what kind* f negati
 
 ---
 
-## Literature review
+## Literature Review
 
 ---
 <!--• the Appraisal framework divide evaluation into Attitude, Graduation, and Engagement. It also divides Attitude into AFFECT, JUDGEMENT, and APPRECIATION, which provides tools and fine-grained categories to systematically describe how people evaluate through language. to analyze the political discourse, JUDGEMENT is the most suitable, here's why” -->
 <!--_paginate: true-->
 
-## Appraisal framework
+## Appraisal Framework
 - Composed of <span style="font-variant:small-caps;">attitude</span>, <span style="font-variant:small-caps;">engagement</span>, and <span style="font-variant:small-caps;">graduation</span>.  
 - Provides a tool to systematically describe how speakers or writers evaluate through language.  
 - Commonly applied in different texts (e.g., politics, media, education)
