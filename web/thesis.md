@@ -426,9 +426,9 @@ Few‑shot prompting corrected many errors that zero‑shot had made, showing th
 
 ---
 <!--_paginate: true-->
-<!-- Negative evaluations of the DPP’s Propriety spiked in June and August.  
-As we can see from the previous slides, Key terms include dictatorship, misogyny, corruption, and trash.  
-These were linked to Lai’s ‘democracy vs dictatorship’ statement, people refute that dpp is the one who is dictator. Worth to note that because of the #MeToo movement was under the spotlight at that time, though may not be directly related to metoo movement, as long as it's propriety-related issue, people also like to raise questions about the DPP’s handling of gender issues altogether. -->
+<!--   
+As we can see from the previous slides, Key terms include dictatorship, misogyny, corruption, and trash. tracing back to the original news and the temporal overlap,
+these were linked to Lai’s ‘democracy vs dictatorship’ statement, people refute that dpp is the one who is dictator. Worth to note that because of the #MeToo movement was under the spotlight at that time, though may not be directly related to metoo movement, as long as it's propriety-related issue, people also like to raise questions about the DPP’s handling of gender issues altogether. -->
 ### DPP: Negative Evaluation of <span style="font-variant:small-caps;">propriety</span>
 - **Spikes in criticism**: June & August  
 - **Key evaluative terms**:  
@@ -470,7 +470,7 @@ These were linked to Lai’s ‘democracy vs dictatorship’ statement, people r
 ---
 <!--_paginate: true-->
 
-<!-- To see exactly how dpp is evaluate, we can adjust the panel from June to August. we can see terms like 內鬥智障 in the word cloud, so -->
+<!-- To see exactly how dpp is evaluate, samely, we can adjust the panel from June to August. we can see terms like 內鬥智障 in the word cloud, so -->
 <iframe
   src="https://publicopiniondashboard-milanochuang.streamlit.app/?section=wordcloud&embedded=true&scale=1"
   width="1200"
@@ -483,7 +483,7 @@ These were linked to Lai’s ‘democracy vs dictatorship’ statement, people r
 <!--_paginate: true-->
 <!-- 
 Terms like infighting and useless reflected frustration with delays in candidate selection and visible intra‑party conflict.  
-These evaluations framed the KMT as organizationally incompetent -->
+These evaluations framed the KMT as organizationally incompetent and the loss of unity, and it might be seen by the commenter and the voter as a sign of poor leadership to the country -->
 ### KMT: Negative Evaluation of <span style="font-variant:small-caps;">capacity</span>
 - Spikes in criticism: April peak, November rise
 - Key evaluative terms:  
