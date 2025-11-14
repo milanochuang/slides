@@ -34,9 +34,8 @@ These kinds of political comment spread rapidly, are anonymous, grassroots in na
   - Diversity and large scale
 
 ---
-<!-- Most NLP research on analyzing such public opinion has mostly focused on polarity — whether a comment is positive or negative.  
-But It overlooks evaluative dimensions such as competence, honesty, or morality.  
-My study argues that we need fine‑grained categories to understand how party are evaluted in the online political discourse.  -->
+<!-- Let's look back to the very first example in the previous slide. 腐化的Ａ黨, this is typically classified to a negative comment; however, it's actually an (click) evaluation of morality. While Most NLP research on analyzing such public opinion has mostly focused on polarity exploration — whether a comment is positive or negative - the dimension of what character or behavior of political party is evaluated could be overlooked. It could also overlook evaluative dimensions such as competence, or honesty where party are mostly evaluated with.  
+My study argues that (click) we need fine‑grained categories to understand how party are evaluted in the online political discourse.  -->
 
 <!--_paginate: true-->
 ### Deeper Understanding of the Comment
