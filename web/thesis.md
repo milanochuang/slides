@@ -4,29 +4,7 @@ theme: uncover
 html: true
 ---
 
-<!-- 1. annotator agreement 要放進來
-     2. 正負面評論那邊要講正符號負符號代表什麼 v
-     3. Frequency of judgement subcategory
-     4. polarity exploration v
-     5. P.3 grammar check
-     6. P.3 詳細罵他什麼東西 
-     7. P.4 sfl citation, martin & white 2005 v
-     8. 靠左v
-     9. judgement subcategories 不用加分
-     10.implementation 分行 v
-     11. research questions v
-     12. citation v
-     13. P.12 總共幾筆資料，爬了什麼時候到什麼時候 v
-     14. P.13 metonymy 過程要呈現，標記過程 
-     15. P.17 拿掉 v
-     16. 表格符合政黨顏色 v
-     17. 文字指引看表格 
-     18. P.20 直接接 24 v
-     19. 人民在選舉中會特別在意這兩種 v
-     20. P36 第三點刪掉 v
-     21. 先講 conclusion 再講 limitation v
-     22. 全部 subcategory 都 smallcaps v
-     -->
+
 <!-- _class: lead -->
 
 <!-- Good afternoon everyone. My name is Hao‑Yun Chuang from the Graduate Institute of Linguistics at NCCU. Today I will present my study Evaluations of Political Judgements: A Corpus-Based Appraisal Analysis of Online Comments on the Taiwan 2024 Presidential Election and its Utility for LLM Implementation.   -->
@@ -602,5 +580,27 @@ This demonstrates the potential of large language models to assist in political 
 
 
 ---
-
+<!-- 1. annotator agreement 要放進來
+     2. 正負面評論那邊要講正符號負符號代表什麼 v
+     3. Frequency of judgement subcategory
+     4. polarity exploration v
+     5. P.3 grammar check
+     6. P.3 詳細罵他什麼東西 
+     7. P.4 sfl citation, martin & white 2005 v
+     8. 靠左v
+     9. judgement subcategories 不用加分
+     10.implementation 分行 v
+     11. research questions v
+     12. citation v
+     13. P.12 總共幾筆資料，爬了什麼時候到什麼時候 v
+     14. P.13 metonymy 過程要呈現，標記過程 
+     15. P.17 拿掉 v
+     16. 表格符合政黨顏色 v
+     17. 文字指引看表格 
+     18. P.20 直接接 24 v
+     19. 人民在選舉中會特別在意這兩種 v
+     20. P36 第三點刪掉 v
+     21. 先講 conclusion 再講 limitation v
+     22. 全部 subcategory 都 smallcaps v
+     -->
 # **Thank you!**
