@@ -127,9 +127,9 @@ because it captures accusations of dishonesty, incompetence, or moral failure.--
 ### Research Gap
 - Annotation problem & solutions
   - Manual annotation → inefficient
-  - Traditional ML → lexicon-based (Casey et al., 2005) <!--poor adaptability-->
-  - Deep learning → BERT, RoBERTa (Mollá, 2020; Aroyehun & Gelbukh, 2020) <!--need retrain-->
-  - Generative LLM → instruction-based prompting (Imamovic et al., 2024) <!--still misclassifies Judgement subcategories-->
+  - Traditional ML (Casey et al., 2005) → lexicon-based  <!--poor adaptability-->
+  - Deep learning (Mollá, 2020; Aroyehun & Gelbukh, 2020) → require retrain  <!--need retrain-->
+  - Generative LLM (Imamovic et al., 2024) → confusion between categories  <!--still misclassifies Judgement subcategories-->
 - Implementation:
   - visualization of the evaluation
 
