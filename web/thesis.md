@@ -121,7 +121,7 @@ because it captures accusations of dishonesty, incompetence, or moral failure.--
 - <span style="font-variant:small-caps;">judgement</span> is proven to be an appropriate resources in Chinese political context (L. Li et al., 2025).
 
 ---
-<!-- Manual annotation of categories in Appraisal is very time‑consuming. So the researchers turned to the model classification. Traditional machine learning models require retraining and lack flexibility. Large language models, however, are more context‑aware, which also fit the nature of the Appraisal framework. By designing prompts, we can guide them to classify evaluative language automatically. I also implemented a visualization dashboard to make these evaluations accessible. -->
+<!-- Manual annotation of categories in Appraisal is very time‑consuming. So the researchers turned to the model classification. So people use traditional machine learning model with lexicon-based method to do the classification. however, it stil requires retraining and lack flexibility. Deep learning models are also tested is capability in annotating appraisal, it still require retraining. Large language models, are more context‑aware, which also fit the nature of the Appraisal framework. By designing prompts, we can guide them to classify evaluative language automatically. So Researcher also tries with instruction-based prompt. In this research, by classifying all categories in thr framework, categorization may be confused. To investigate the reason behind the evaluation, I also implemented a visualization dashboard to make these evaluations accessible. -->
 <!--_paginate: true-->
 
 ### Research Gap
