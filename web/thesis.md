@@ -148,12 +148,13 @@ because it captures accusations of dishonesty, incompetence, or moral failure.--
 </div>
 
 ---
-<!-- The data comes from the PTT Gossiping board, scraped from January 12, 2023 to January 12, 2024, which is the whole presidential election year before the election day. After filering the keyword, finally 14018 comments were to be annotated. Here is the annotation process.
-. -->
+
 <!--_paginate: true-->
 ## **Methodology**
 
 ---
+<!-- The data comes from the PTT Gossiping board, scraped from January 12, 2023 to January 12, 2024, which is the whole presidential election year before the election day. After filering the keyword, finally 14018 comments were to be annotated. Here is the annotation process.
+. -->
 ## Data Annotation
 <div style="font-size: 36px; line-height: 1.4; text-align: left; max-width: 100%;">
 
