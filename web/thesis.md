@@ -80,27 +80,27 @@ Together, these five subcategories—Capacity, Propriety, Veracity, Tenacity, an
     <th>Examples from PTT</th>
   </tr>
   <tr>
-    <td>Capacity</td>
+    <td><span style="font-variant:small-caps;">capacity</span></td>
     <td>competence, intelligence</td>
     <td>A 黨又<span style="background-color: #94d2eeff;">沒實力</span>！</td>
   </tr>
   <tr>
-    <td>Propriety</td>
+    <td><span style="font-variant:small-caps;">propriety</span></td>
     <td>morality, ethics</td>
     <td>B 黨最<span style="background-color: #94d2eeff;">公平公正公開</span>！</td>
   </tr>
   <tr>
-    <td>Veracity</td>
+    <td><span style="font-variant:small-caps;">veracity</span></td>
     <td>honesty, truthfulness</td>
     <td>C 黨都在<span style="background-color: #94d2eeff;">說謊</span>！</td>
   </tr>
   <tr>
-    <td>Tenacity</td>
+    <td><span style="font-variant:small-caps;">tenacity</span></td>
     <td>determination, resolve</td>
     <td>D 黨<span style="background-color: #94d2eeff;">保持</span>從政初心！</td>
   </tr>
   <tr>
-    <td>Normality</td>
+    <td><span style="font-variant:small-caps;">normality</span></td>
     <td>unusualness</td>
     <td>E 黨願意才<span style="background-color: #94d2eeff;">奇怪</span>勒！</td>
   </tr>
