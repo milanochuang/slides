@@ -552,7 +552,7 @@ Predicted: <span style="font-variant:small-caps;">capacity</span>
 
 (12) **民進黨的國家機器真有夠噁爛**
 &emsp;&emsp;**"The DPP's state apparatus is truly disgusting."**
-- Issue: Model reads "state apparatus" as an incompetent actor rather than a morally illegitimate practice.  
+- Issue: Model reads "state apparatus" as an measure of competence rather than a morally illegitimate practice.  
 - Insight: Domain-specific prompts could help emphasize how political context shifts evaluative meaning.
 
 </div>
