@@ -106,7 +106,7 @@ scrapy-tutorial\Scripts\activate.bat
 ----
 
 ```bash=
-git clone https://github.com/milanochuang/spider_tutorial.git
+git clone https://github.com/milanochuang/scrape_tutorial.git
 cd spider_tutorial
 pip install -r requirements.txt
 ```
