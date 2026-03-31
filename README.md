@@ -4,7 +4,7 @@
 <!-- https://shields.io/ -->
 
 #### 關於我
-* [自我介紹](https://milanochuang.github.io/slides/crawler/self_introduction.html)
+* [自我介紹](https://milanochuang.github.io/slides/about/self_introduction.html)
 
 #### 爬蟲
 * [Python 爬蟲入門](https://milanochuang.github.io/slides/crawler/python_crawler.html)
