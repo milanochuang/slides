@@ -18,7 +18,7 @@ footer_content: "© 2025 Hao-Yun Chuang"
 markdown: kramdown
 
 nav_external_links:
-  - title: ⬅️ 回 Geekbase
+  - title: ⬅ Hao-Yun's Geekbase
     url: https://milanochuang.github.io
   - title: GitHub
     url: https://github.com/milanochuang
