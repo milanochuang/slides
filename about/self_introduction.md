@@ -2,6 +2,7 @@
 marp: true
 theme: default
 paginate: true
+nav_exclude: true
 style: |
   section {
     font-family: 'Noto Sans TC', sans-serif;

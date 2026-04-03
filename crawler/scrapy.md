@@ -4,6 +4,7 @@ theme: uncover
 class:
   - lead
   - invert
+nav_exclude: true
 ---
 
 <!-- <style type="text/css">

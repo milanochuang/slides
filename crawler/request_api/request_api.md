@@ -5,6 +5,7 @@ class:
   - lead
   - invert
 paginate: true
+nav_exclude: true
 ---
 
 <!-- _paginate: false -->

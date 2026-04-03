@@ -1,6 +1,7 @@
 ---
 marp: true
 theme: default
+nav_exclude: true
 ---
 
 # 網路爬蟲

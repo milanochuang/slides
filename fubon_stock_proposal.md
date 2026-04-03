@@ -2,6 +2,7 @@
 marp: true
 theme: default
 paginate: true
+nav_exclude: true
 style: |
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Inter:wght@400;600;700;800&display=swap');
 

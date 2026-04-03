@@ -2,6 +2,7 @@
 marp: true
 theme: uncover
 html: true
+nav_exclude: true
 ---
 
 

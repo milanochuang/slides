@@ -2,7 +2,7 @@
 title: R crawler
 marp: true
 theme: default
-
+nav_exclude: true
 ---
 
 <!--會寫字寫句子，但不代表寫得出好文章-->

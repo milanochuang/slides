@@ -3,6 +3,7 @@ marp: true
 theme: default
 paginate: true
 size: 16:9
+nav_exclude: true
 style: |
   :root {
     --navy: #0D2B55;

@@ -1,6 +1,7 @@
 ---
 marp: true
 theme: uncover
+nav_exclude: true
 ---
 
 <!-- <img src="https://i.imgur.com/AiMpIV1.png" style="background:none; border:none; box-shadow:none; max-width:40%;"> -->
