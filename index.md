@@ -4,11 +4,17 @@ title: 首頁
 nav_order: 1
 ---
 
-# Hao-Yun Chuang's Slides
+# Hao-Yun 的教學投影片
 
 收錄資料爬蟲、網頁開發、程式教學等課程投影片。
 
 ---
+
+## 關於
+
+| 投影片 | 說明 |
+|--------|------|
+| [自我介紹](about/self_introduction.html) | 莊昊耘個人介紹 |
 
 ## 資料爬蟲
 
@@ -32,8 +38,3 @@ nav_order: 1
 |--------|------|
 | [Git & GitHub 教學](develop/github_demo.html) | 版本控制基礎與 GitHub 協作流程 |
 
-## 關於
-
-| 投影片 | 說明 |
-|--------|------|
-| [自我介紹](about/self_introduction.html) | 莊昊耘個人介紹 |
