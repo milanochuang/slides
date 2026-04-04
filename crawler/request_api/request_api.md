@@ -54,7 +54,7 @@ nav_exclude: true
 
 ---
 
-![width:500px](https://camo.githubusercontent.com/01ee3fd490427e64eb4aea990bc7dadfab24b8d8ed88f1856c073f5485f708b7/68747470733a2f2f756e646f2e696f2f6d656469612f75706c6f6164732f66696c65732f467275737472617465645f70726f6772616d6d65722e6769663f7261773d74727565)
+![width:500px](https://images.stockcake.com/public/4/4/4/444179f4-f76d-4161-8055-6e00baaba264_large/frustrated-programmer-working-stockcake.jpg)
 
 ---
 
