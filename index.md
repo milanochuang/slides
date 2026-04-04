@@ -15,6 +15,7 @@ nav_order: 1
 | 投影片 | 說明 |
 |--------|------|
 | [自我介紹](about/self_introduction.html) | 莊昊耘個人介紹 |
+| [論文發表](web/thesis.html) | 台灣 2024 總統大選網路評論語料庫語用分析 |
 
 ## 資料爬蟲
 
@@ -30,7 +31,6 @@ nav_order: 1
 | 投影片 | 說明 |
 |--------|------|
 | [Flask 網頁開發](web/flask.html) | 使用 Flask 框架建立 Python 網頁應用程式 |
-| [論文發表](web/thesis.html) | 台灣 2024 總統大選網路評論語料庫語用分析 |
 
 ## 開發工具
 
